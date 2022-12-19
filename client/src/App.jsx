@@ -3,6 +3,8 @@ import Services from "./screens/services";
 import Home from "./screens/home";
 import NavBarFooterLayout from "./components/navBarFooterLayout";
 import { useEffect } from "react";
+import { ThemeProvider } from "@mui/material";
+import theme from "./theme";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -15,17 +17,19 @@ const ScrollToTop = (props) => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop>
-        <Routes>
-          {/* <Route path="/" element={<INSERT BOOK US PAGES SO NO LAYOUT PRESET />} /> */}
-          <Route element={<NavBarFooterLayout />}>
-            <Route path="/" element={<Home />} exact />
-            <Route path="/services" element={<Services />} />
-          </Route>
-        </Routes>
-      </ScrollToTop>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <ScrollToTop>
+          <Routes>
+            {/* <Route path="/" element={<INSERT BOOK US PAGES SO NO LAYOUT PRESET />} /> */}
+            <Route element={<NavBarFooterLayout />}>
+              <Route path="/" element={<Home />} exact />
+              <Route path="/services" element={<Services />} />
+            </Route>
+          </Routes>
+        </ScrollToTop>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
