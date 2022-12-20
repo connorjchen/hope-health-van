@@ -39,14 +39,7 @@ function HomePageCard({ title, location, description, buttonText }) {
       </Typography>
       <Button
         sx={{
-          background: theme.palette.purple.dark,
-          display: "block",
-          marginLeft: "auto",
-          borderRadius: "100px",
-          padding: "8px 16px",
-          "&:hover": {
-            background: theme.palette.purple.dark,
-          },
+          ...theme.purpleButton,
         }}
       >
         {buttonText}

@@ -55,10 +55,7 @@ function Home() {
         <HomePageCard
           title="Health Check"
           location="across Ghana"
-          description="paragraph (approx 5 sentences)
-          Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet bibendum metus
-           
-          Price range: GH$1 - GH$2"
+          description="paragraph (approx 5 sentences) Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet bibendum metus Price range: GH$1 - GH$2"
           buttonText="Book for a Group"
         />
       </Box>

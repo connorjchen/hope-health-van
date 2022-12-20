@@ -14,15 +14,16 @@ import {
   Typography,
   Button,
   useTheme,
+  Link,
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 
 const navItems = [
-  "Our Services",
-  "About Us",
-  "Contact Us",
-  "Booking",
-  "Volunteer With Us",
+  ["Home", "/"],
+  ["Our Services", "/services"],
+  ["About Us", "/about"],
+  ["Contact Us", "/contact"],
+  ["Volunteer With Us", "/volunteer"],
 ];
 
 function NavBar(props) {
@@ -40,11 +41,13 @@ function NavBar(props) {
       sx={{ background: theme.palette.purple.light }}
     >
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "left" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+        {navItems.map(([title, url]) => (
+          <ListItem key={title} disablePadding>
+            <Link href={url}>
+              <ListItemButton sx={{ textAlign: "left" }}>
+                <ListItemText primary={title} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
