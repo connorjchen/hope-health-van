@@ -11,6 +11,30 @@ import {
   Grid,
   useTheme,
 } from "@mui/material";
+import VolunteerPageCard from "../components/volunteerPageCard";
+
+const roles = [
+  [
+    "https://picsum.photos/200",
+    "Volunteer role",
+    "Supporting line text lorem ipsum dolor sit amet, consectetur",
+  ],
+  [
+    "https://picsum.photos/200",
+    "Volunteer role",
+    "Supporting line text lorem ipsum dolor sit amet, consectetur",
+  ],
+  [
+    "https://picsum.photos/200",
+    "Volunteer role",
+    "Supporting line text lorem ipsum dolor sit amet, consectetur",
+  ],
+  [
+    "https://picsum.photos/200",
+    "Volunteer role",
+    "Supporting line text lorem ipsum dolor sit amet, consectetur",
+  ],
+];
 
 function Volunteer() {
   const theme = useTheme();
@@ -18,84 +42,88 @@ function Volunteer() {
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box>
-        <Box mx="16px">
-          <Typography
-            variant="h5"
-            sx={{
-              marginTop: "32px",
-              marginBottom: "24px",
-            }}
-          >
-            Volunteer with us
-          </Typography>
-          <Button sx={{ ...theme.purpleButton }}>Sign Up</Button>
-        </Box>
-        <Divider
+      <Box mx="16px">
+        <Typography
+          variant="h5"
           sx={{
-            my: "24px",
+            marginTop: "32px",
+            marginBottom: "24px",
           }}
-        />
-        <Box mx="16px">
-          <Typography
-            variant="h5"
-            sx={{
-              marginTop: "32px",
-              marginBottom: "24px",
-            }}
-          >
-            How you can help
-          </Typography>
-          <p>hehe</p>
-        </Box>
-        <Divider
+        >
+          Volunteer with us
+        </Typography>
+        <Button sx={{ ...theme.purpleButton }}>Sign Up</Button>
+      </Box>
+      <Divider
+        sx={{
+          my: "24px",
+        }}
+      />
+      <Box mx="16px">
+        <Typography
+          variant="h5"
           sx={{
-            my: "24px",
+            marginTop: "32px",
+            marginBottom: "24px",
           }}
-        />
-        <Box mx="16px">
-          <Typography
-            variant="h5"
-            sx={{
-              marginBottom: "24px",
-            }}
-          >
-            Training
-          </Typography>
-          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
-        </Box>
-        <Divider
+        >
+          How you can help
+        </Typography>
+        {roles.map((role) => (
+          <VolunteerPageCard
+            image={role[0]}
+            role={role[1]}
+            description={role[2]}
+          />
+        ))}
+      </Box>
+      <Divider
+        sx={{
+          my: "24px",
+        }}
+      />
+      <Box mx="16px">
+        <Typography
+          variant="h5"
           sx={{
-            my: "24px",
+            marginBottom: "24px",
           }}
-        />
-        <Box mx="16px">
-          <Typography
-            variant="h5"
-            sx={{
-              marginBottom: "24px",
-            }}
-          >
-            Time Commitment
-          </Typography>
-          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
-        </Box>
-        <Divider
+        >
+          Training
+        </Typography>
+        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+      </Box>
+      <Divider
+        sx={{
+          my: "24px",
+        }}
+      />
+      <Box mx="16px">
+        <Typography
+          variant="h5"
           sx={{
-            my: "24px",
+            marginBottom: "24px",
           }}
-        />
-        <Box mx="16px">
-          <Typography
-            variant="h5"
-            sx={{
-              marginBottom: "24px",
-            }}
-          >
-            Locations
-          </Typography>
-          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
-        </Box>
+        >
+          Time Commitment
+        </Typography>
+        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+      </Box>
+      <Divider
+        sx={{
+          my: "24px",
+        }}
+      />
+      <Box mx="16px">
+        <Typography
+          variant="h5"
+          sx={{
+            marginBottom: "24px",
+          }}
+        >
+          Locations
+        </Typography>
+        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
       </Box>
     </Box>
   );

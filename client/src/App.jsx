@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import About from "./screens/about";
 import Volunteer from "./screens/volunteer";
+import Faq from "./screens/faq";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
               <Route path="/volunteer" element={<Volunteer />} />
+              <Route path="/faq" element={<Faq />} />
             </Route>
           </Routes>
         </ScrollToTop>

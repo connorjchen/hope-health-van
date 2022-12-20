@@ -10,7 +10,8 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
     <Box
       sx={{
         padding: "16px",
-        border: "1px solid #CAC4D0",
+        border: "1px solid",
+        borderColor: theme.palette.primary.outline,
         borderRadius: "12px",
         background: theme.palette.purple.light,
         marginBottom: "16px",

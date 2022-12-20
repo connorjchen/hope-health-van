@@ -4,7 +4,8 @@ const darkPurple = "#6750A4";
 const mediumPurple = "#E8DEF8";
 const lightPurple = "#FFFBFE";
 const greyishPurple = "rgba(231, 224, 236, 0.49);";
-const lightGrey = "#FFFFFF";
+const white = "#FFFFFF";
+const lightGrey = "#CAC4D0";
 const black = "#000000";
 
 const theme = createTheme({
@@ -13,8 +14,9 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: lightGrey,
+      main: white,
       black: black,
+      outline: lightGrey,
     },
     purple: {
       dark: darkPurple,
