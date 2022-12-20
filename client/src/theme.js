@@ -10,6 +10,15 @@ const black = "#000000";
 const theme = createTheme({
   typography: {
     fontFamily: ["Roboto"],
+    h1: {
+      fontWeight: 400,
+      fontSize: "20px",
+      margin: "20px",
+    },
+    subtitle1: {
+      fontSize: "14px",
+      lineHeight: "16px",
+    },
   },
   palette: {
     primary: {
@@ -21,6 +30,32 @@ const theme = createTheme({
       medium: mediumPurple,
       greyish: greyishPurple,
       light: lightPurple,
+    },
+  },
+  components: {
+    MuiLinearProgress: {
+      styleOverrides: {
+        root: {
+          background: greyishPurple,
+          "& .MuiLinearProgress-barColorPrimary": {
+            backgroundColor: darkPurple,
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          backgroundColor: greyishPurple,
+          borderRadius: "5px",
+          label: {
+            fontSize: "16px",
+          },
+          input: {
+            fontSize: "16px",
+          },
+        },
+      },
     },
   },
 });
