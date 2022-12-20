@@ -6,15 +6,18 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
+  InputAdornment,
+  Alert,
 } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
+import SearchIcon from "@mui/icons-material/Search";
 
 function LabTests() {
   const theme = useTheme();
 
   return (
     <Box>
-      <ProgressHeader title="Lab Services" onBack="" progress={5} />
+      <ProgressHeader title="Lab Services" progress={5} />
       <Box px="30px">
         <Box align="center">
           <Typography variant="h3">Select lab tests</Typography>
@@ -30,9 +33,17 @@ function LabTests() {
             id="filled-basic"
             label="Search lab tests"
             variant="filled"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
           />
           <Typography variant="h4">Select all that apply</Typography>
         </Box>
+        <Alert severity="error">Please select at least one test</Alert>
       </Box>
       <Box>
         <Typography variant="h5" px="30px">
