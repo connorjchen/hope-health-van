@@ -43,8 +43,16 @@ function NavBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+            <ListItemButton sx={{ textAlign: "left" }}>
+              <ListItemText
+                primary={item}
+                primaryTypographyProps={{
+                  sx: {
+                    fontSize: "20px",
+                    lineHeight: "28px",
+                  },
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -62,6 +70,7 @@ function NavBar(props) {
         component="nav"
         sx={{
           boxShadow: "none",
+          position: "relative",
         }}
       >
         <Toolbar

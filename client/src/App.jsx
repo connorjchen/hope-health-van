@@ -21,7 +21,6 @@ function App() {
       <BrowserRouter>
         <ScrollToTop>
           <Routes>
-            {/* <Route path="/" element={<INSERT BOOK US PAGES SO NO LAYOUT PRESET />} /> */}
             <Route element={<NavBarFooterLayout />}>
               <Route path="/" element={<Home />} exact />
               <Route path="/services" element={<Services />} />
