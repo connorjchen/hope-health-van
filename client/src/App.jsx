@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import About from "./screens/about";
+import Volunteer from "./screens/volunteer";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<Home />} exact />
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
+              <Route path="/volunteer" element={<Volunteer />} />
             </Route>
           </Routes>
         </ScrollToTop>

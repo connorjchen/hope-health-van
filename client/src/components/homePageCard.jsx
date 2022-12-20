@@ -44,6 +44,7 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
         onClick={() => navigate(buttonUrl)}
         sx={{
           ...theme.purpleButton,
+          marginLeft: "auto",
         }}
       >
         {buttonText}

@@ -14,6 +14,7 @@ function ServicesPageCard({ children, title, buttonText, buttonUrl }) {
         onClick={() => navigate(buttonUrl)}
         sx={{
           ...theme.purpleButton,
+          marginLeft: "auto",
         }}
       >
         {buttonText}

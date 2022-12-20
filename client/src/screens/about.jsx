@@ -8,8 +8,8 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  useTheme,
 } from "@mui/material";
-import theme from "../theme";
 
 const profiles = [
   ["https://picsum.photos/200", "Name name", "Title / role"],
@@ -21,6 +21,8 @@ const profiles = [
 ];
 
 function ProfileCard({ image, name, role }) {
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
@@ -55,6 +57,8 @@ function ProfileCard({ image, name, role }) {
 }
 
 function About() {
+  const theme = useTheme();
+
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>

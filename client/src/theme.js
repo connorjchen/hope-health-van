@@ -43,7 +43,6 @@ const theme = createTheme({
   purpleButton: {
     background: darkPurple,
     display: "block",
-    marginLeft: "auto",
     borderRadius: "100px",
     padding: "8px 16px",
     "&:hover": {
