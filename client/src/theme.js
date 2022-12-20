@@ -9,15 +9,31 @@ const black = "#000000";
 
 const theme = createTheme({
   typography: {
+    fontSize: 18.75, // TODO: figure out mapping from rem to px for this to be exactly 16px
     fontFamily: ["Roboto"],
-    h1: {
+    h2: {
       fontWeight: 400,
       fontSize: "20px",
       margin: "20px",
     },
     subtitle1: {
+      fontWeight: 400,
       fontSize: "14px",
       lineHeight: "16px",
+    },
+    h3: {
+      fontWeight: 400,
+      fontSize: "16px",
+      margin: "20px",
+    },
+    h4: {
+      fontWeight: 500,
+      fontSize: "16px",
+      marginTop: "10px",
+      marginBottom: "10px",
+    },
+    caption: {
+      fontSize: "14px",
     },
   },
   palette: {
@@ -54,6 +70,23 @@ const theme = createTheme({
           input: {
             fontSize: "16px",
           },
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          "&.Mui-checked": {
+            color: darkPurple,
+          },
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        root: {
+          paddingTop: "10px",
+          paddingBottom: "10px",
         },
       },
     },
