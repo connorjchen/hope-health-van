@@ -5,6 +5,7 @@ import NavBarFooterLayout from "./components/navBarFooterLayout";
 import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
+import About from "./screens/about";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
             <Route element={<NavBarFooterLayout />}>
               <Route path="/" element={<Home />} exact />
               <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
             </Route>
           </Routes>
         </ScrollToTop>

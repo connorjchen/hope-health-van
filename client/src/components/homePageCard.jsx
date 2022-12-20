@@ -1,8 +1,11 @@
 import React from "react";
 import { Box, Button, Typography, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-function HomePageCard({ title, location, description, buttonText }) {
+function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
   const theme = useTheme();
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -13,7 +16,7 @@ function HomePageCard({ title, location, description, buttonText }) {
         marginBottom: "16px",
       }}
     >
-      <Box display="flex" marginBottom="16px">
+      <Box display="flex" marginBottom="16px" alignItems="center">
         <Box
           sx={{
             width: "48px",
@@ -38,6 +41,7 @@ function HomePageCard({ title, location, description, buttonText }) {
         {description}
       </Typography>
       <Button
+        onClick={() => navigate(buttonUrl)}
         sx={{
           ...theme.purpleButton,
         }}

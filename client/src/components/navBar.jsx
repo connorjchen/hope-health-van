@@ -74,7 +74,9 @@ function NavBar(props) {
             background: theme.palette.primary.main,
           }}
         >
-          <Typography>Logo</Typography>
+          <Link href="/">
+            <Typography>Logo</Typography>
+          </Link>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -85,10 +87,10 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: theme.palette.primary.black }}>
-                {item}
-              </Button>
+            {navItems.map(([title, url]) => (
+              <Link href={url} key={title} marginLeft="16px">
+                {title}
+              </Link>
             ))}
           </Box>
         </Toolbar>

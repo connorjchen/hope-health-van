@@ -1,8 +1,12 @@
 import React from "react";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography, Link } from "@mui/material";
 
-const FooterText = ({ children }) => {
-  return <Typography variant="body1">{children}</Typography>;
+const FooterText = ({ text, url }) => {
+  return (
+    <Link href={url}>
+      <Typography variant="body1">{text}</Typography>
+    </Link>
+  );
 };
 
 function Footer() {
@@ -16,12 +20,12 @@ function Footer() {
           alignItems="center"
           marginBottom="16px"
         >
-          <FooterText>Our Services</FooterText>
-          <FooterText>Work With Us</FooterText>
+          <FooterText text="Our Services" url="/services" />
+          <FooterText text="Work With Us" url="/volunteer" />
         </Box>
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <FooterText>FAQ</FooterText>
-          <FooterText>About Us</FooterText>
+          <FooterText text="FAQ" url="/faq" />
+          <FooterText text="About Us" url="/about" />
         </Box>
       </Box>
     </Box>
