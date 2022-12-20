@@ -1,10 +1,9 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {
   AppBar,
   Box,
   CssBaseline,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -15,15 +14,16 @@ import {
   Typography,
   Button,
   useTheme,
+  Link,
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 
 const navItems = [
-  "Our Services",
-  "About Us",
-  "Contact Us",
-  "Booking",
-  "Volunteer With Us",
+  ["Home", "/"],
+  ["Our Services", "/services"],
+  ["About Us", "/about"],
+  ["Contact Us", "/contact"],
+  ["Volunteer With Us", "/volunteer"],
 ];
 
 function NavBar(props) {
@@ -41,11 +41,13 @@ function NavBar(props) {
       sx={{ background: theme.palette.purple.light }}
     >
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+        {navItems.map(([title, url]) => (
+          <ListItem key={title} disablePadding>
+            <Link href={url}>
+              <ListItemButton sx={{ textAlign: "left" }}>
+                <ListItemText primary={title} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -62,6 +64,7 @@ function NavBar(props) {
         component="nav"
         sx={{
           boxShadow: "none",
+          position: "relative",
         }}
       >
         <Toolbar
@@ -71,7 +74,9 @@ function NavBar(props) {
             background: theme.palette.primary.main,
           }}
         >
-          <Typography>Logo</Typography>
+          <Link href="/">
+            <Typography>Logo</Typography>
+          </Link>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -82,10 +87,10 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: theme.palette.primary.black }}>
-                {item}
-              </Button>
+            {navItems.map(([title, url]) => (
+              <Link href={url} key={title} marginLeft="16px">
+                {title}
+              </Link>
             ))}
           </Box>
         </Toolbar>
