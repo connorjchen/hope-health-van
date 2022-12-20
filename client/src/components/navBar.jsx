@@ -1,10 +1,9 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {
   AppBar,
   Box,
   CssBaseline,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -44,15 +43,7 @@ function NavBar(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "left" }}>
-              <ListItemText
-                primary={item}
-                primaryTypographyProps={{
-                  sx: {
-                    fontSize: "20px",
-                    lineHeight: "28px",
-                  },
-                }}
-              />
+              <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
         ))}

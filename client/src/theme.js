@@ -23,6 +23,15 @@ const theme = createTheme({
       light: lightPurple,
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+        },
+      },
+    },
+  },
 });
 
 export default theme;
