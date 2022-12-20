@@ -14,6 +14,11 @@ const theme = createTheme({
     fontFamily: ["Roboto"],
     h2: {
       fontWeight: 400,
+      fontSize: "22px",
+      margin: "0px",
+    },
+    h3: {
+      fontWeight: 400,
       fontSize: "20px",
       margin: "20px",
     },
@@ -22,12 +27,12 @@ const theme = createTheme({
       fontSize: "14px",
       lineHeight: "16px",
     },
-    h3: {
+    h4: {
       fontWeight: 400,
       fontSize: "16px",
       margin: "20px",
     },
-    h4: {
+    h5: {
       fontWeight: 500,
       fontSize: "16px",
       marginTop: "10px",
