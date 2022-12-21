@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import LabTests from "./screens/labTests";
 import Services from "./screens/services";
 import Home from "./screens/home";
 import NavBarFooterLayout from "./components/navBarFooterLayout";
@@ -30,6 +31,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/volunteer" element={<Volunteer />} />
               <Route path="/faq" element={<Faq />} />
+              <Route path="/labtests" element={<LabTests />} />
             </Route>
           </Routes>
         </ScrollToTop>
