@@ -20,6 +20,8 @@ function Calendar() {
       .then((response) => response.json())
       .then((response) => console.log(response.resource))
       .catch((err) => console.error(err));
+
+    // navigate to end screen
   };
 
   useCalendlyEventListener({
@@ -28,7 +30,7 @@ function Calendar() {
 
   return (
     <Box>
-      <ProgressHeader title="Lab Services" progress={25} />
+      <ProgressHeader title="Lab Services" progress={50} />
       <Typography variant="h3" textAlign="center">
         Find an appointment
       </Typography>
@@ -55,17 +57,6 @@ function Calendar() {
           },
         }}
       />
-      <Box align="center">
-        <Button
-          onClick={() => navigate("/labtests")}
-          sx={{
-            ...theme.purpleButton,
-            px: "40px",
-          }}
-        >
-          Next
-        </Button>
-      </Box>
     </Box>
   );
 }
