@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import LabTests from "./screens/labTests";
+import Select from "./screens/select";
+import Confirm from "./screens/confirm";
 import Services from "./screens/services";
 import Home from "./screens/home";
 import NavBarFooterLayout from "./components/navBarFooterLayout";
@@ -33,9 +34,16 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/volunteer" element={<Volunteer />} />
               <Route path="/faq" element={<Faq />} />
-              <Route path="/labtests" element={<LabTests />} />
+
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/booking/group" element={<GroupHealthCheck />} />
+
+              <Route path="/booking/:service/select" element={<Select />} />
+              <Route path="/booking/:service/calendar" element={<Home />} />
+              <Route
+                path="/booking/:service/confirmation"
+                element={<Confirm />}
+              />
             </Route>
           </Routes>
         </ScrollToTop>

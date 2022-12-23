@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const tests = {
   Hematology: [
@@ -52,13 +52,18 @@ const tests = {
   ],
 };
 
-function LabTests() {
+function Select() {
   const theme = useTheme();
   const navigate = useNavigate();
+  let { service } = useParams();
 
   return (
     <Box>
-      <ProgressHeader title="Lab Services" progress={5} />
+      <ProgressHeader
+        title={service}
+        onBack={() => navigate("/")}
+        progress={5}
+      />
       <Box px="30px">
         <Box align="center">
           <Typography variant="h3">Select lab tests</Typography>
@@ -129,4 +134,4 @@ function LabTests() {
   );
 }
 
-export default LabTests;
+export default Select;

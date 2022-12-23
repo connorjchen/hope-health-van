@@ -36,13 +36,14 @@ const theme = createTheme({
       margin: "20px",
     },
     h5: {
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "16px",
-      marginTop: "10px",
+      marginTop: "20px",
       marginBottom: "10px",
     },
     caption: {
       fontSize: "14px",
+      color: "#49454F",
     },
   },
   palette: {
@@ -117,6 +118,14 @@ const theme = createTheme({
         root: {
           paddingTop: "10px",
           paddingBottom: "10px",
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          padding: "0.5px",
+          background: lightGrey,
         },
       },
     },
