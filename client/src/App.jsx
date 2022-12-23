@@ -11,6 +11,8 @@ import theme from "./theme";
 import About from "./screens/about";
 import Volunteer from "./screens/volunteer";
 import Faq from "./screens/faq";
+import Calendar from "./screens/calendar";
+import GroupHealthCheck from "./screens/groupHealthCheck";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -34,6 +36,8 @@ function App() {
               <Route path="/volunteer" element={<Volunteer />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/labtests" element={<LabTests />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/booking/group" element={<GroupHealthCheck />} />
 
               <Route path="/booking/:service/select" element={<Select />} />
               <Route path="/booking/:service/calendar" element={<Home />} />
