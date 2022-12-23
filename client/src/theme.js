@@ -35,7 +35,7 @@ const theme = createTheme({
     h5: {
       fontWeight: 700,
       fontSize: "16px",
-      marginTop: "10px",
+      marginTop: "20px",
       marginBottom: "10px",
     },
     caption: {
@@ -110,6 +110,14 @@ const theme = createTheme({
         root: {
           paddingTop: "10px",
           paddingBottom: "10px",
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          padding: "0.5px",
+          background: lightGrey,
         },
       },
     },

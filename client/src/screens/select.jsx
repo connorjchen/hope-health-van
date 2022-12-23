@@ -59,7 +59,11 @@ function Select() {
 
   return (
     <Box>
-      <ProgressHeader title={service} progress={5} />
+      <ProgressHeader
+        title={service}
+        onBack={() => navigate("/")}
+        progress={5}
+      />
       <Box px="30px">
         <Box align="center">
           <Typography variant="h3">Select lab tests</Typography>
