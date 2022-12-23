@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LabTests from "./screens/labTests";
 import Select from "./screens/select";
-import Personal from "./screens/personal";
-import Review from "./screens/review";
 import Confirm from "./screens/confirm";
 import Services from "./screens/services";
 import Home from "./screens/home";
@@ -39,9 +37,10 @@ function App() {
 
               <Route path="/booking/:service/select" element={<Select />} />
               <Route path="/booking/:service/calendar" element={<Home />} />
-              <Route path="/booking/:service/personal" element={<Personal />} />
-              <Route path="/booking/:service/review" element={<Review />} />
-              <Route path="/booking/:service/confirm" element={<Confirm />} />
+              <Route
+                path="/booking/:service/confirmation"
+                element={<Confirm />}
+              />
             </Route>
           </Routes>
         </ScrollToTop>
