@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import LabTests from "./screens/labTests";
 import Select from "./screens/select";
 import Confirm from "./screens/confirm";
 import Services from "./screens/services";
