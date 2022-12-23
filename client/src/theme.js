@@ -33,13 +33,14 @@ const theme = createTheme({
       margin: "20px",
     },
     h5: {
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "16px",
       marginTop: "10px",
       marginBottom: "10px",
     },
     caption: {
       fontSize: "14px",
+      color: "#49454F",
     },
   },
   palette: {
