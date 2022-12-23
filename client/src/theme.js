@@ -2,11 +2,14 @@ import { createTheme, alpha } from "@mui/material/styles";
 
 const darkPurple = "#6750A4";
 const mediumPurple = "#E8DEF8";
+const inputPurple = "#E7E0EC";
 const lightPurple = "#FFFBFE";
 const greyishPurple = "rgba(231, 224, 236, 0.49);";
 const white = "#FFFFFF";
 const lightGrey = "#CAC4D0";
+const darkGrey = "#1C1B1F";
 const black = "#000000";
+const errorAlert = "#B3261E";
 
 const theme = createTheme({
   typography: {
@@ -47,12 +50,17 @@ const theme = createTheme({
       main: white,
       black: black,
       outline: lightGrey,
+      error: errorAlert,
+    },
+    secondary: {
+      main: darkGrey,
     },
     purple: {
       dark: darkPurple,
       medium: mediumPurple,
       greyish: greyishPurple,
       light: lightPurple,
+      input: inputPurple,
     },
   },
   components: {

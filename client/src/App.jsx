@@ -10,6 +10,7 @@ import About from "./screens/about";
 import Volunteer from "./screens/volunteer";
 import Faq from "./screens/faq";
 import Calendar from "./screens/calendar";
+import GroupHealthCheck from "./screens/groupHealthCheck";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
               <Route path="/faq" element={<Faq />} />
               <Route path="/labtests" element={<LabTests />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/booking/group" element={<GroupHealthCheck />} />
             </Route>
           </Routes>
         </ScrollToTop>
