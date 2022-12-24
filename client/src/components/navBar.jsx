@@ -22,7 +22,6 @@ const navItems = [
   ["Home", "/"],
   ["Our Services", "/services"],
   ["About Us", "/about"],
-  ["Contact Us", "/contact"],
   ["Volunteer With Us", "/volunteer"],
 ];
 
@@ -34,25 +33,6 @@ function NavBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
-  const drawer = (
-    <Box
-      onClick={handleDrawerToggle}
-      sx={{ background: theme.palette.purple.light }}
-    >
-      <List>
-        {navItems.map(([title, url]) => (
-          <ListItem key={title} disablePadding>
-            <Link href={url}>
-              <ListItemButton sx={{ textAlign: "left" }}>
-                <ListItemText primary={title} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -112,7 +92,22 @@ function NavBar(props) {
             },
           }}
         >
-          {drawer}
+          <Box
+            onClick={handleDrawerToggle}
+            sx={{ background: theme.palette.purple.light }}
+          >
+            <List>
+              {navItems.map(([title, url]) => (
+                <ListItem key={title} disablePadding>
+                  <Link href={url}>
+                    <ListItemButton sx={{ textAlign: "left" }}>
+                      <ListItemText primary={title} />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </Drawer>
       </Box>
     </Box>

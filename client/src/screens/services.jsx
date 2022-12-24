@@ -28,7 +28,7 @@ function Services() {
         <ServicesPageCard
           title="Lab Services"
           buttonText="Book Lab Services"
-          buttonUrl="/"
+          buttonUrl="/booking/labservices/select"
         >
           <Typography variant="body1" margin="16px 0">
             Every day, we're helping healthcare providers treat millions of
@@ -51,7 +51,7 @@ function Services() {
         <ServicesPageCard
           title="Mobile Van"
           buttonText="Book Mobile Van"
-          buttonUrl="/"
+          buttonUrl="/booking/mobilevan/select"
         >
           <Typography variant="body1" margin="16px 0">
             Our Hope Health Vans are mini traveling hospitals that treat people
@@ -71,7 +71,7 @@ function Services() {
         <ServicesPageCard
           title="Telehealth"
           buttonText="Book Online Appointment"
-          buttonUrl="/"
+          buttonUrl="/booking/telehealth/select"
         >
           <Typography variant="body1" margin="16px 0">
             Our virtual care platform is a convenient, secure way to chat with
@@ -107,7 +107,7 @@ function Services() {
         <ServicesPageCard
           title="Health Check"
           buttonText="Book for a Group"
-          buttonUrl="/"
+          buttonUrl="/booking/group"
         >
           <Typography variant="body1" margin="16px 0">
             PLACEHOLDER TEXT
