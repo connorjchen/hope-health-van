@@ -14,7 +14,7 @@ function Footer() {
     <Box marginTop="32px">
       <Divider />
       <Box margin="16px">
-        <Box
+        {/* <Box
           display="flex"
           justifyContent="space-between"
           alignItems="center"
@@ -24,6 +24,11 @@ function Footer() {
           <FooterText text="Work With Us" url="/volunteer" />
         </Box>
         <Box display="flex" justifyContent="space-between" alignItems="center">
+          <FooterText text="FAQ" url="/faq" />
+          <FooterText text="About Us" url="/about" />
+        </Box> */}
+        <Box marginBottom="16px">
+          <FooterText text="Our Services" url="/services" />
           <FooterText text="FAQ" url="/faq" />
           <FooterText text="About Us" url="/about" />
         </Box>

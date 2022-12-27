@@ -1,13 +1,13 @@
-import { Box, Typography, useTheme, Alert, Button } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { serviceConstants } from "./select";
 
 const locations = {
-  labservices: "Hope Clinic",
-  mobilevan: "Mobile Van",
-  telehealth: "Phone Call",
+  labservices: 1,
+  mobilevan: "",
+  telehealth: 2,
 };
 
 function Calendar() {
@@ -27,6 +27,8 @@ function Calendar() {
       },
     };
 
+    console.log(e.data.payload);
+
     fetch(e.data.payload.invitee.uri, options)
       .then((response) => response.json())
       .then((response) => {
@@ -44,6 +46,7 @@ function Calendar() {
           questionResponses,
           "Phone Number"
         );
+        const location = findAnswerToQuestion(questionResponses, "Location");
         const okbNumber = findAnswerToQuestion(
           questionResponses,
           "If you are a previous patient, provide OKB number for medical record"
@@ -59,6 +62,7 @@ function Calendar() {
           email,
           cancelUrl,
           phoneNumber,
+          location,
           services: state.optionsSelected,
           okbNumber,
           additionalInfo,
@@ -67,17 +71,13 @@ function Calendar() {
         fetch(e.data.payload.event.uri, options)
           .then((response) => response.json())
           .then((response) => {
-            const {
-              start_time: startTime,
-              end_time: endTime,
-              location,
-            } = response.resource;
+            const { start_time: startTime, end_time: endTime } =
+              response.resource;
 
             payload = {
               ...payload,
               startTime,
               endTime,
-              location: location.location,
             };
             console.log(payload);
             navigate(`/booking/${service}/confirmation`, {
@@ -104,15 +104,15 @@ function Calendar() {
         Find an appointment
       </Typography>
       <InlineWidget
-        url="https://calendly.com/okb-hope-health/okb-appointment"
+        url={serviceConstants[service].calendly}
         styles={{
-          height: "1168px",
+          height: "100vh",
         }}
         prefill={{
           email: "info@okbfoundation.org",
-          location: locations[service],
           customAnswers: {
-            a2: state.optionsSelected.join(", "),
+            a2: locations[service],
+            a3: state.optionsSelected.join(", "),
           },
         }}
       />

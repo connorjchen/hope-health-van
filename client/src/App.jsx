@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import About from "./screens/about";
-import Volunteer from "./screens/volunteer";
+// import Volunteer from "./screens/volunteer";
 import Faq from "./screens/faq";
 import Calendar from "./screens/calendar";
 import GroupHealthCheck from "./screens/groupHealthCheck";
@@ -33,7 +33,7 @@ function App() {
               <Route path="/" element={<Home />} exact />
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
-              <Route path="/volunteer" element={<Volunteer />} />
+              {/* <Route path="/volunteer" element={<Volunteer />} /> */}
               <Route path="/faq" element={<Faq />} />
               <Route path="/booking/group" element={<GroupHealthCheck />} />
               <Route

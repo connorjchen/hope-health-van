@@ -20,6 +20,7 @@ export const serviceConstants = {
     title: "Lab Services",
     subheader: "Select lab tests",
     error: "Please select at least one lab test",
+    calendly: "https://calendly.com/okb-hope-health/okb-health-clinic",
     options: {
       Hematology: [
         ["Blood Film for Malaria", 1, 2],
@@ -60,18 +61,29 @@ export const serviceConstants = {
   },
   mobilevan: {
     title: "Mobile Van",
-    subheader: "Select locations(s)",
-    error: "Please select at least one location",
+    subheader: "Select services",
+    error: "Please select one service",
+    calendly: "https://calendly.com/okb-hope-health/okb-mobile-van",
     options: {
-      "Region 1": [["Location A"], ["Location B"], ["Location C"]],
-      "Region 2": [["Location A"], ["Location B"], ["Location C"]],
-      "Region 3": [["Location A"], ["Location B"], ["Location C"]],
+      Hematology: [
+        ["Blood Film for Malaria", 1, 2],
+        ["Blood grouping", 1, 2],
+      ],
+      Microbiology: [
+        ["H. Pylori", 1, 2],
+        ["HVS R/E", 1, 2],
+      ],
+      Biochemistry: [
+        ["AFP", 1, 2],
+        ["Calcium estimates", 1, 2],
+      ],
     },
   },
   telehealth: {
     title: "Telehealth",
     subheader: "Select service(s)",
     error: "Please select at least one service",
+    calendly: "https://calendly.com/okb-hope-health/okb-health-clinic",
     options: {
       Services: [
         ["Service 1", 1],
@@ -110,15 +122,15 @@ function Select() {
   };
 
   const renderSelectOptions = () => {
-    if (service === "labservices") {
+    if (service === "labservices" || service === "mobilevan") {
       return (
         <>
           <Typography variant="subtitle1" mb="15px">
             <Box fontWeight="bold" display="inline" component="span">
               Hint:{" "}
             </Box>
-            if you are unsure about which labs you need, check your prescription
-            or contact your doctor.
+            if you are unsure about which services you need, check your
+            prescription or contact your doctor.
           </Typography>
           <TextField
             fullWidth
@@ -146,18 +158,12 @@ function Select() {
           />
         </>
       );
-    } else if (service === "mobilevan") {
-      return (
-        <>
-          <p>services select thingy</p>
-        </>
-      );
     }
     // none for telehealth
   };
 
   const Caption = ({ lo, hi }) => {
-    if (service === "labservices") {
+    if (service === "labservices" || service === "mobilevan") {
       return (
         <Typography variant="caption">
           Price range: GH${lo} - GH${hi}
@@ -166,7 +172,6 @@ function Select() {
     } else if (service === "telehealth") {
       return <Typography variant="caption">Price: GH${lo}</Typography>;
     }
-    // none for mobilevan
   };
 
   return (

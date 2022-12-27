@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Divider,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, Divider, Button, useTheme } from "@mui/material";
 import VolunteerPageCard from "../components/volunteerPageCard";
 
 const roles = [

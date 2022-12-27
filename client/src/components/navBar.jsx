@@ -12,7 +12,6 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  Button,
   useTheme,
   Link,
 } from "@mui/material";
@@ -22,7 +21,7 @@ const navItems = [
   ["Home", "/"],
   ["Our Services", "/services"],
   ["About Us", "/about"],
-  ["Volunteer With Us", "/volunteer"],
+  // ["Volunteer With Us", "/volunteer"],
 ];
 
 function NavBar(props) {

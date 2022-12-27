@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, List, ListItem, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 const VolunteerPageCard = ({ image, role, description }) => {
   const theme = useTheme();
