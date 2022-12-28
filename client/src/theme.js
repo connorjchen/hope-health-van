@@ -82,6 +82,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
+          fontSize: "14px",
         },
       },
     },
@@ -137,7 +138,6 @@ const theme = createTheme({
     MuiDivider: {
       styleOverrides: {
         root: {
-          // padding: "0.5px",
           borderColor: lightGrey,
         },
       },

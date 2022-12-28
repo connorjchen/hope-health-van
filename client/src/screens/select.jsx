@@ -18,7 +18,7 @@ import React, { useState } from "react";
 export const serviceConstants = {
   labservices: {
     title: "Lab Services",
-    subheader: "Select lab tests",
+    subheader: "Select lab test(s)",
     error: "Please select at least one lab test",
     calendly: "https://calendly.com/okb-hope-health/okb-health-clinic",
     options: {
@@ -61,7 +61,7 @@ export const serviceConstants = {
   },
   mobilevan: {
     title: "Mobile Van",
-    subheader: "Select services",
+    subheader: "Select service(s)",
     error: "Please select one service",
     calendly: "https://calendly.com/okb-hope-health/okb-mobile-van",
     options: {
@@ -222,7 +222,7 @@ function Select() {
                         control={<Checkbox />}
                         label={
                           <Box>
-                            <Typography>{test}</Typography>
+                            <Typography variant="body1">{test}</Typography>
                             <Caption lo={lo} hi={hi} />
                           </Box>
                         }
