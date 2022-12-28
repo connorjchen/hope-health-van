@@ -1,3 +1,5 @@
+const sendWhatsAppMessage = require('../sendWhatsAppMessage')
+const sendEmail = require('../sendEmail')
 const express = require('express')
 const router = express.Router()
 
@@ -16,9 +18,11 @@ router.post("/labservice/appointment", (request, response) => {
 		previousUse: request.body.previousUse,
 		medicalRecord: request.body.medicalRecord
 	})
+	sendEmail()
+	sendWhatsAppMessage()
 	bookLabService.save()
 	.then(data => {
-		response.json(data)
+		response.json(data) 
 	})
 	.catch(error => {
 		response.json(error)
@@ -34,6 +38,8 @@ router.post("/mobilevan/appointment", (request, response) => {
 		previousUse: request.body.previousUse,
 		medicalRecord: request.body.medicalRecord
 	})
+	sendEmail()
+	sendWhatsAppMessage()
 	bookMobileVan.save()
 	.then(data => {
 		response.json(data)
@@ -52,6 +58,8 @@ router.post("/telehealth/appointment", (request, response) => {
 		previousUse: request.body.previousUse,
 		medicalRecord: request.body.medicalRecord
 	})
+	sendEmail()
+	sendWhatsAppMessage()
 	bookTelehealth.save()
 	.then(data => {
 		response.json(data)
@@ -70,6 +78,8 @@ router.post("/grouphealthcheck/appointment", (request, response) => {
 		selectedDate: request.body.selectedDate,
 		request: request.body.request
 	})
+	sendEmail()
+	sendWhatsAppMessage()	
 	bookGroupHealthCheck.save()
 	.then(data => {
 		response.json(data)
