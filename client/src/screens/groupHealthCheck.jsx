@@ -51,7 +51,7 @@ function GroupHealthCheck() {
       <Box px="30px">
         <Box align="center">
           <Typography variant="h3">Complete the request form below</Typography>
-          <Typography variant="subtitle1" mb="15px">
+          <Typography variant="subtitle1" my="24px">
             Please fill out all the fields to help us prepare for your visit.
           </Typography>
           {error && (
@@ -136,7 +136,6 @@ function GroupHealthCheck() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           sx={{
-            mb: "16px",
             background: theme.palette.purple.input,
             "& .MuiFilledInput-root": {
               backgroundColor: "inherit",
@@ -146,7 +145,7 @@ function GroupHealthCheck() {
             },
           }}
         />
-        <Typography variant="subtitle1" my="15px" align="center">
+        <Typography variant="subtitle1" my="24px" align="center">
           Please select a date for the appointment. <br />
           Keep in mind that we cannot guarantee the date you request will be
           available.
@@ -187,7 +186,7 @@ function GroupHealthCheck() {
           value={request}
           onChange={(e) => setRequest(e.target.value)}
           sx={{
-            mb: "16px",
+            mb: "40px",
             background: theme.palette.purple.input,
             "& .MuiFilledInput-root": {
               backgroundColor: "inherit",
@@ -206,7 +205,7 @@ function GroupHealthCheck() {
               px: "40px",
             }}
           >
-            Next
+            Submit
           </Button>
         </Box>
       </Box>

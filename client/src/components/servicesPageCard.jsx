@@ -8,8 +8,8 @@ function ServicesPageCard({ children, title, buttonText, buttonUrl }) {
 
   return (
     <Box>
-      <Typography variant="h6">{title}</Typography>
-      {children}
+      <Typography variant="h4">{title}</Typography>
+      <Box mb="16px">{children}</Box>
       <Button
         onClick={() => navigate(buttonUrl)}
         sx={{

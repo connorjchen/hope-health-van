@@ -8,7 +8,7 @@ function Home() {
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
       <Box margin="0 16px">
         <Typography
-          variant="h5"
+          variant="h1"
           sx={{
             marginTop: "32px",
             marginBottom: "24px",
@@ -17,8 +17,9 @@ function Home() {
           Bringing healthcare to your doorsteps
         </Typography>
         <Typography
-          variant="h6"
+          variant="h3"
           sx={{
+            fontWeight: 700,
             marginBottom: "16px",
           }}
         >
@@ -27,7 +28,7 @@ function Home() {
         <HomePageCard
           title="Lab Services"
           location="in our clinic"
-          description="Our comprehensive test menu provides routine and specialty diagnostic testing and screening for multiple diseases and conditions"
+          description="Our comprehensive test menu provides routine and specialty diagnostic testing and screening for multiple diseases and conditions."
           buttonText="Book Lab Services"
           buttonUrl="/booking/labservices/select"
         />
@@ -48,8 +49,9 @@ function Home() {
           buttonUrl="/booking/telehealth/select"
         />
         <Typography
-          variant="h6"
+          variant="h3"
           sx={{
+            fontWeight: 700,
             marginBottom: "16px",
           }}
         >
