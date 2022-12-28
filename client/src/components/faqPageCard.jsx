@@ -14,8 +14,10 @@ const FaqPageCard = ({ question, answer }) => {
         marginBottom: "16px",
       }}
     >
-      <Typography variant="h6">{question}</Typography>
-      <Typography variant="body1">{answer}</Typography>
+      <Typography variant="h5" my="6px">
+        {question}
+      </Typography>
+      <Typography variant="caption">{answer}</Typography>
     </Box>
   );
 };

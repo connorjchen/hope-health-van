@@ -34,13 +34,17 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
           A
         </Box>
         <Box>
-          <Typography variant="h6">{title}</Typography>
-          <Typography variant="body1">{location}</Typography>
+          <Typography variant="h5" m="0">
+            {title}
+          </Typography>
+          <Typography variant="caption" sx={{ margin: "0px" }}>
+            {location}
+          </Typography>
         </Box>
       </Box>
-      <Typography variant="body1" marginBottom="12px">
-        {description}
-      </Typography>
+      <Box mb="12px">
+        <Typography variant="caption">{description}</Typography>
+      </Box>
       <Button
         onClick={() => navigate(buttonUrl)}
         sx={{

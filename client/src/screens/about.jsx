@@ -47,8 +47,8 @@ function ProfileCard({ image, name, role }) {
               background: theme.palette.purple.light,
             }}
           >
-            <Typography variant="h6">{name}</Typography>
-            <Typography variant="body1">{role}</Typography>
+            <Typography variant="body1">{name}</Typography>
+            <Typography variant="caption">{role}</Typography>
           </CardContent>
         </Box>
       </CardActionArea>
@@ -65,7 +65,7 @@ function About() {
       <Box>
         <Box mx="16px">
           <Typography
-            variant="h5"
+            variant="h1"
             sx={{
               marginTop: "32px",
               marginBottom: "24px",
@@ -86,35 +86,43 @@ function About() {
         </Box>
         <Divider
           sx={{
-            my: "24px",
+            my: "64px",
           }}
         />
         <Box mx="16px">
           <Typography
-            variant="h5"
+            variant="h1"
             sx={{
-              marginBottom: "24px",
+              marginBottom: "16px",
             }}
           >
             Our Mission
           </Typography>
-          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+          <Typography variant="body1">
+            Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet
+            bibendum metus et vehicula. ue. Sed laoreet bibendum metus et
+            vehicula. ue. Sed laoreet bibendum metus et vehicula.
+          </Typography>
         </Box>
         <Divider
           sx={{
-            my: "24px",
+            my: "64px",
           }}
         />
         <Box mx="16px">
           <Typography
-            variant="h5"
+            variant="h1"
             sx={{
-              marginBottom: "24px",
+              marginBottom: "16px",
             }}
           >
             Our Vision
           </Typography>
-          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+          <Typography variant="body1">
+            Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet
+            bibendum metus et vehicula. ue. Sed laoreet bibendum metus et
+            vehicula. ue. Sed laoreet bibendum metus et vehicula.
+          </Typography>
         </Box>
       </Box>
     </Box>

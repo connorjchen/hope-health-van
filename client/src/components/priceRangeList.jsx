@@ -5,11 +5,11 @@ import { v4 as uuid } from "uuid";
 const PriceRangeList = ({ items }) => {
   return (
     <>
-      <Typography variant="body1">Price ranges:</Typography>
+      <Typography variant="caption">Price ranges:</Typography>
       <List
         sx={{
           listStyleType: "disc",
-          paddingLeft: "16px",
+          paddingLeft: "28px",
           "& .MuiListItem-root": {
             display: "list-item",
           },
@@ -20,10 +20,10 @@ const PriceRangeList = ({ items }) => {
             <ListItem
               key={uuid()}
               sx={{
-                paddingLeft: 0,
+                padding: 0,
               }}
             >
-              {item}
+              <Typography variant="caption">{item}</Typography>
             </ListItem>
           );
         })}

@@ -13,8 +13,14 @@ const errorAlert = "#B3261E";
 
 const theme = createTheme({
   typography: {
-    fontSize: 18.75, // TODO: figure out mapping from rem to px for this to be exactly 16px
     fontFamily: ["Roboto"],
+    body1: {
+      fontSize: "16px",
+    },
+    h1: {
+      fontWeight: 400,
+      fontSize: "24px",
+    },
     h2: {
       fontWeight: 400,
       fontSize: "22px",
@@ -23,7 +29,8 @@ const theme = createTheme({
     h3: {
       fontWeight: 400,
       fontSize: "20px",
-      margin: "20px",
+      marginTop: "20px",
+      marginBottom: "20px",
     },
     subtitle1: {
       fontWeight: 400,
@@ -32,18 +39,21 @@ const theme = createTheme({
     },
     h4: {
       fontWeight: 400,
-      fontSize: "16px",
-      margin: "20px",
+      fontSize: "18px",
+      marginTop: "20px",
+      marginBottom: "20px",
     },
     h5: {
       fontWeight: 700,
       fontSize: "16px",
-      marginTop: "20px",
+      marginTop: "10px",
       marginBottom: "10px",
     },
     caption: {
+      display: "block",
       fontSize: "14px",
       color: "#49454F",
+      lineHeight: "20px",
     },
   },
   palette: {
@@ -65,6 +75,9 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiTypography: {
+      display: "block",
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -124,8 +137,8 @@ const theme = createTheme({
     MuiDivider: {
       styleOverrides: {
         root: {
-          padding: "0.5px",
-          background: lightGrey,
+          // padding: "0.5px",
+          borderColor: lightGrey,
         },
       },
     },

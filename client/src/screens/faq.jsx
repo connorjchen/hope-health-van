@@ -40,7 +40,7 @@ function Faq() {
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
       <Box mx="16px">
         <Typography
-          variant="h5"
+          variant="h1"
           sx={{
             marginTop: "32px",
             marginBottom: "24px",
