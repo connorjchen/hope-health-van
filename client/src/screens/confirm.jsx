@@ -29,7 +29,7 @@ function Confirm() {
 
           <Typography variant="h3">Your appointment is scheduled</Typography>
           <Typography variant="h5" mb="4px">
-            Date and time
+            Date and time (UTC)
           </Typography>
           <Typography variant="body1">
             {dayjs(state.startTime).utc().format("dddd, MMMM D YYYY")}
