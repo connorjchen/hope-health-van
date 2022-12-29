@@ -62,22 +62,21 @@ function About() {
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box>
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "0px", md: "auto" },
+        }}
+      >
         <Box mx="16px">
-          <Typography
-            variant="h1"
-            sx={{
-              marginTop: "32px",
-              marginBottom: "24px",
-            }}
-          >
+          <Typography variant="h1" mt="32px" mb="24px">
             Our Team
           </Typography>
           <Grid container spacing="16px">
             {profiles.map(([image, name, role]) => {
               console.log(name);
               return (
-                <Grid item xs={6} sm={4} md={3}>
+                <Grid item xs={6} sm={4}>
                   <ProfileCard image={image} name={name} role={role} />
                 </Grid>
               );
@@ -90,12 +89,7 @@ function About() {
           }}
         />
         <Box mx="16px">
-          <Typography
-            variant="h1"
-            sx={{
-              marginBottom: "16px",
-            }}
-          >
+          <Typography variant="h1" mb="16px">
             Our Mission
           </Typography>
           <Typography variant="body1">
@@ -110,12 +104,7 @@ function About() {
           }}
         />
         <Box mx="16px">
-          <Typography
-            variant="h1"
-            sx={{
-              marginBottom: "16px",
-            }}
-          >
+          <Typography variant="h1" mb="16px">
             Our Vision
           </Typography>
           <Typography variant="body1">

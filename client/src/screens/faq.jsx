@@ -38,14 +38,13 @@ function Faq() {
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box mx="16px">
-        <Typography
-          variant="h1"
-          sx={{
-            marginTop: "32px",
-            marginBottom: "24px",
-          }}
-        >
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "0px", md: "auto" },
+        }}
+      >
+        <Typography variant="h1" mt="32px" mb="24px">
           FAQ
         </Typography>
         {faqs.map((faq) => (

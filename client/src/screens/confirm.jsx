@@ -1,16 +1,4 @@
-import {
-  Box,
-  useTheme,
-  Typography,
-  Divider,
-  TextField,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  InputAdornment,
-  Alert,
-  Button,
-} from "@mui/material";
+import { Box, useTheme, Typography, Divider, Button } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
@@ -25,48 +13,15 @@ function Confirm() {
   let { service } = useParams();
   const { state } = useLocation();
 
-  const ServiceInfo = () => {
-    if (service === "labservices") {
-      return (
-        <>
-          <Typography variant="h5" mt="24px" mb="4px">
-            Lab tests
-          </Typography>
-          {state.services.map((service) => (
-            <Typography key={service}>{service}</Typography>
-          ))}
-          <Typography variant="caption">
-            Estimated overall cost range: GH$10 - GH$15
-            <br />
-            Estimated time at the facility: 20 minutes
-          </Typography>
-        </>
-      );
-    } else if (service === "teleheatlh") {
-      return (
-        <>
-          <Typography variant="h5" mt="24px" mb="4px">
-            Services
-          </Typography>
-          <Typography variant="body1">
-            Blood Film for Malaria
-            <br />
-            Sickle cell electrophoresis
-          </Typography>
-          <Typography variant="caption">
-            Estimated overall cost range: GH$10 - GH$15
-            <br />
-            Estimated time at the facility: 20 minutes
-          </Typography>
-        </>
-      );
-    }
-  };
-
   return (
     <Box>
       <ProgressHeader title={serviceConstants[service].title} progress={100} />
-      <Box px="20px">
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "20px", md: "auto" },
+        }}
+      >
         <Box align="center">
           <Box mt="30px">
             <CheckIcon color="success" fontSize="large" />
@@ -74,7 +29,7 @@ function Confirm() {
 
           <Typography variant="h3">Your appointment is scheduled</Typography>
           <Typography variant="h5" mb="4px">
-            Date and time
+            Date and time (UTC)
           </Typography>
           <Typography variant="body1">
             {dayjs(state.startTime).utc().format("dddd, MMMM D YYYY")}
@@ -101,7 +56,19 @@ function Confirm() {
               }}
             />
           </Box>
-          <ServiceInfo />
+          <Typography variant="h5" mt="24px" mb="4px">
+            Services
+          </Typography>
+          {state.services.map((service) => (
+            <Typography key={service}>{service}</Typography>
+          ))}
+          <Typography variant="caption">
+            {service === "telehealth"
+              ? `Estimated overall cost: GH$${state.minPrice}`
+              : `Estimated overall cost range: GH$${state.minPrice} - GH$${state.maxPrice}`}
+            <br />
+            Estimated time at the facility: 30 minutes
+          </Typography>
           <Typography variant="h5" mt="24px" mb="4px">
             Patient’s details
           </Typography>

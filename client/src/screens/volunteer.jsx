@@ -31,88 +31,68 @@ function Volunteer() {
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box mx="16px">
-        <Typography
-          variant="h5"
-          sx={{
-            marginTop: "32px",
-            marginBottom: "24px",
-          }}
-        >
-          Volunteer with us
-        </Typography>
-        <Button sx={{ ...theme.purpleButton }}>Sign Up</Button>
-      </Box>
-      <Divider
+      <Box
         sx={{
-          my: "24px",
+          maxWidth: "md",
+          mx: { xs: "0px", md: "auto" },
         }}
-      />
-      <Box mx="16px">
-        <Typography
-          variant="h5"
+      >
+        <Box mx="16px">
+          <Typography variant="h5" mt="32px" mb="24px">
+            Volunteer with us
+          </Typography>
+          <Button sx={{ ...theme.purpleButton }}>Sign Up</Button>
+        </Box>
+        <Divider
           sx={{
-            marginTop: "32px",
-            marginBottom: "24px",
+            my: "24px",
           }}
-        >
-          How you can help
-        </Typography>
-        {roles.map((role) => (
-          <VolunteerPageCard
-            image={role[0]}
-            role={role[1]}
-            description={role[2]}
-          />
-        ))}
-      </Box>
-      <Divider
-        sx={{
-          my: "24px",
-        }}
-      />
-      <Box mx="16px">
-        <Typography
-          variant="h5"
+        />
+        <Box mx="16px">
+          <Typography variant="h5" mt="32px" mb="24px">
+            How you can help
+          </Typography>
+          {roles.map((role) => (
+            <VolunteerPageCard
+              image={role[0]}
+              role={role[1]}
+              description={role[2]}
+            />
+          ))}
+        </Box>
+        <Divider
           sx={{
-            marginBottom: "24px",
+            my: "24px",
           }}
-        >
-          Training
-        </Typography>
-        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
-      </Box>
-      <Divider
-        sx={{
-          my: "24px",
-        }}
-      />
-      <Box mx="16px">
-        <Typography
-          variant="h5"
+        />
+        <Box mx="16px">
+          <Typography variant="h5" mb="24px">
+            Training
+          </Typography>
+          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+        </Box>
+        <Divider
           sx={{
-            marginBottom: "24px",
+            my: "24px",
           }}
-        >
-          Time Commitment
-        </Typography>
-        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
-      </Box>
-      <Divider
-        sx={{
-          my: "24px",
-        }}
-      />
-      <Box mx="16px">
-        <Typography
-          variant="h5"
+        />
+        <Box mx="16px">
+          <Typography variant="h5" mb="24px">
+            Time Commitment
+          </Typography>
+          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+        </Box>
+        <Divider
           sx={{
-            marginBottom: "24px",
+            my: "24px",
           }}
-        >
-          Locations
-        </Typography>
-        <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+        />
+        <Box mx="16px">
+          <Typography variant="h5" mb="24px">
+            Locations
+          </Typography>
+          <Typography variant="body1">PLACEHOLDER TEXT</Typography>
+        </Box>
       </Box>
     </Box>
   );
