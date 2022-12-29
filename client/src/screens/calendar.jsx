@@ -1,7 +1,12 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import { useCalendlyEventListener, InlineWidget } from "react-calendly";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  Navigate,
+} from "react-router-dom";
 import { serviceConstants } from "./select";
 
 const locations = {
@@ -15,6 +20,10 @@ function Calendar() {
   const navigate = useNavigate();
   const { service } = useParams();
   const { state } = useLocation();
+
+  if (state === null) {
+    return <Navigate replace to={`/booking/${service}/select`} />;
+  }
 
   const handleCalendlySubmit = (e) => {
     let payload = {};
