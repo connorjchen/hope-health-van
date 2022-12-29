@@ -35,6 +35,7 @@ function GroupHealthCheck() {
       phoneNumber,
       email,
       date, // format date to backend preferred format MAKE SURE TO CONVERT TO UTC / GMT TIME (GHANA LOCAL)
+      // dayjs(state.startTime).utc().format("h:mm A dddd, MMMM D YYYY") as seen in confirm.jsx converts to utc and formats to readable string
       request,
     }); // send email to info@okbfoundation.org or have backend do it
     // if send is successful, navigate

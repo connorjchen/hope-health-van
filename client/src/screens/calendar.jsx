@@ -76,6 +76,7 @@ function Calendar() {
             const { start_time: startTime, end_time: endTime } =
               response.resource;
             // MAKE SURE THIS IS UTC / GMT - GHANA LOCAL TIME
+            // dayjs(state.startTime).utc().format("h:mm A dddd, MMMM D YYYY") as seen in confirm.jsx converts to utc and formats to readable string
             payload = {
               ...payload,
               startTime,
