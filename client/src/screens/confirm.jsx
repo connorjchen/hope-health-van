@@ -53,6 +53,7 @@ function Confirm() {
               sx={{
                 borderWidth: "1px",
                 borderColor: theme.palette.purple.dark,
+                backgroundColor: theme.palette.purple.dark,
               }}
             />
           </Box>
