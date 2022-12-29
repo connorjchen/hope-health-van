@@ -27,11 +27,9 @@ function Footer() {
           <FooterText text="FAQ" url="/faq" />
           <FooterText text="About Us" url="/about" />
         </Box> */}
-        <Box marginBottom="16px">
-          <FooterText text="Our Services" url="/services" />
-          <FooterText text="FAQ" url="/faq" />
-          <FooterText text="About Us" url="/about" />
-        </Box>
+        <FooterText text="Our Services" url="/services" />
+        <FooterText text="FAQ" url="/faq" />
+        <FooterText text="About Us" url="/about" />
       </Box>
     </Box>
   );

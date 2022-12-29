@@ -64,6 +64,8 @@ function Calendar() {
           phoneNumber,
           location,
           services: state.optionsSelected,
+          minPrice: state.minPrice,
+          maxPrice: state.maxPrice,
           okbNumber,
           additionalInfo,
         };
@@ -73,7 +75,7 @@ function Calendar() {
           .then((response) => {
             const { start_time: startTime, end_time: endTime } =
               response.resource;
-
+            // MAKE SURE THIS IS UTC / GMT - GHANA LOCAL TIME
             payload = {
               ...payload,
               startTime,

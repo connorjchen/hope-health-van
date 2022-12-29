@@ -5,26 +5,22 @@ import {
   LinearProgress,
   IconButton,
   Toolbar,
-  useTheme,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const ProgressHeader = ({ title, onBack, progress }) => {
-  const theme = useTheme();
-
   return (
     <Box>
       <Box mb="10px">
         <Toolbar justify="center" sx={{ minHeight: 0 }}>
-          {onBack ? (
-            <IconButton color="inherit" edge="start" onClick={onBack}>
-              <ArrowBackIcon padding="0px" />
-            </IconButton>
-          ) : (
-            <IconButton edge="start" sx={{ visibility: "hidden" }}>
-              <ArrowBackIcon padding="0px" />
-            </IconButton>
-          )}
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={onBack ? onBack : () => null}
+            sx={{ visibility: onBack ? "visible" : "hidden" }}
+          >
+            <ArrowBackIcon padding="0px" />
+          </IconButton>
           <Typography variant="h2" align="center" noWrap sx={{ flex: 1 }}>
             {title}
           </Typography>

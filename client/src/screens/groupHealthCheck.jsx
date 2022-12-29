@@ -8,11 +8,7 @@ import {
 } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import { useNavigate } from "react-router-dom";
-import {
-  MobileDatePicker,
-  LocalizationProvider,
-  DesktopDatePicker,
-} from "@mui/x-date-pickers";
+import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React, { useState } from "react";
@@ -38,7 +34,7 @@ function GroupHealthCheck() {
       organization,
       phoneNumber,
       email,
-      date, // format date to backend preferred format
+      date, // format date to backend preferred format MAKE SURE TO CONVERT TO UTC / GMT TIME (GHANA LOCAL)
       request,
     }); // send email to info@okbfoundation.org or have backend do it
     // if send is successful, navigate
@@ -47,8 +43,17 @@ function GroupHealthCheck() {
 
   return (
     <Box>
-      <ProgressHeader title="Group Health Check" progress={50} />
-      <Box px="30px">
+      <ProgressHeader
+        title="Group Health Check"
+        progress={50}
+        onBack={() => navigate(`/`)}
+      />
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "30px", md: "auto" },
+        }}
+      >
         <Box align="center">
           <Typography variant="h3">Complete the request form below</Typography>
           <Typography variant="subtitle1" my="24px">
@@ -80,13 +85,7 @@ function GroupHealthCheck() {
           onChange={(e) => setName(e.target.value)}
           sx={{
             mb: "16px",
-            background: theme.palette.purple.input,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "inherit",
-              "&:hover": {
-                backgroundColor: "inherit",
-              },
-            },
+            ...theme.purpleInput,
           }}
         />
         <TextField
@@ -99,13 +98,7 @@ function GroupHealthCheck() {
           onChange={(e) => setOrganization(e.target.value)}
           sx={{
             mb: "16px",
-            background: theme.palette.purple.input,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "inherit",
-              "&:hover": {
-                backgroundColor: "inherit",
-              },
-            },
+            ...theme.purpleInput,
           }}
         />
         <TextField
@@ -118,13 +111,7 @@ function GroupHealthCheck() {
           onChange={(e) => setPhoneNumber(e.target.value)}
           sx={{
             mb: "16px",
-            background: theme.palette.purple.input,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "inherit",
-              "&:hover": {
-                backgroundColor: "inherit",
-              },
-            },
+            ...theme.purpleInput,
           }}
         />
         <TextField
@@ -136,13 +123,7 @@ function GroupHealthCheck() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           sx={{
-            background: theme.palette.purple.input,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "inherit",
-              "&:hover": {
-                backgroundColor: "inherit",
-              },
-            },
+            ...theme.purpleInput,
           }}
         />
         <Typography variant="subtitle1" my="24px" align="center">
@@ -163,13 +144,7 @@ function GroupHealthCheck() {
                 color="secondary"
                 sx={{
                   mb: "16px",
-                  background: theme.palette.purple.input,
-                  "& .MuiFilledInput-root": {
-                    backgroundColor: "inherit",
-                    "&:hover": {
-                      backgroundColor: "inherit",
-                    },
-                  },
+                  ...theme.purpleInput,
                 }}
               />
             )}
@@ -187,14 +162,7 @@ function GroupHealthCheck() {
           onChange={(e) => setRequest(e.target.value)}
           sx={{
             mb: "40px",
-            background: theme.palette.purple.input,
-            "& .MuiFilledInput-root": {
-              backgroundColor: "inherit",
-              fontSize: "16px",
-              "&:hover": {
-                backgroundColor: "inherit",
-              },
-            },
+            ...theme.purpleInput,
           }}
         />
         <Box align="center">
