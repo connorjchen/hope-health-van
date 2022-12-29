@@ -7,7 +7,12 @@ function Services() {
   return (
     <Box>
       <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box margin="0 16px">
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "16px", md: "auto" },
+        }}
+      >
         <Typography
           variant="h1"
           sx={{

@@ -152,6 +152,15 @@ const theme = createTheme({
       background: darkPurple,
     },
   },
+  purpleInput: {
+    background: inputPurple,
+    "& .MuiFilledInput-root": {
+      backgroundColor: "inherit",
+      "&:hover": {
+        backgroundColor: "inherit",
+      },
+    },
+  },
 });
 
 export default theme;

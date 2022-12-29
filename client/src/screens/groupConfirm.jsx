@@ -13,7 +13,12 @@ function GroupConfirm() {
   return (
     <Box>
       <ProgressHeader title="Group Health Check" progress={100} />
-      <Box px="20px">
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "20px", md: "auto" },
+        }}
+      >
         <Box align="center">
           <Box mt="30px">
             <CheckIcon color="success" fontSize="large" />

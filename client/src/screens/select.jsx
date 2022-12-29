@@ -100,21 +100,27 @@ function Select() {
   const { service } = useParams();
   const constants = serviceConstants[service];
   const [optionsSelected, setOptionsSelected] = useState([]);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSelectOption = (option) => {
+  const handleSelectOption = (option, lo, hi) => {
     if (optionsSelected.includes(option)) {
       setOptionsSelected(optionsSelected.filter((o) => o !== option));
+      setMinPrice(minPrice - lo);
+      setMaxPrice(maxPrice - hi ?? 0);
     } else {
       setOptionsSelected([...optionsSelected, option]);
+      setMinPrice(minPrice + lo);
+      setMaxPrice(maxPrice + hi ?? 0);
     }
   };
 
   const handleNextButtonClick = () => {
     if (optionsSelected.length > 0) {
       navigate(`/booking/${service}/calendar`, {
-        state: { optionsSelected },
+        state: { optionsSelected, minPrice, maxPrice },
       });
     } else {
       setError(true);
@@ -181,7 +187,12 @@ function Select() {
         onBack={() => navigate("/")}
         progress={5}
       />
-      <Box px="30px">
+      <Box
+        sx={{
+          maxWidth: "md",
+          mx: { xs: "30px", md: "auto" },
+        }}
+      >
         <Box align="center">
           <Typography variant="h3">{constants.subheader}</Typography>
           {renderSelectOptions()}
@@ -205,7 +216,14 @@ function Select() {
       </Box>
       {Object.keys(constants.options).map((title) => {
         return (
-          <Box mb="30px" key={title}>
+          <Box
+            mb="30px"
+            key={title}
+            sx={{
+              maxWidth: "md",
+              mx: { xs: "0", md: "auto" },
+            }}
+          >
             <Typography variant="h5" px="30px">
               {title}
             </Typography>
@@ -226,7 +244,7 @@ function Select() {
                             <Caption lo={lo} hi={hi} />
                           </Box>
                         }
-                        onChange={() => handleSelectOption(test)}
+                        onChange={() => handleSelectOption(test, lo, hi)}
                       />
                     );
                   }
@@ -236,21 +254,6 @@ function Select() {
           </Box>
         );
       })}
-      {error && (
-        <Alert
-          severity="error"
-          sx={{
-            mb: "16px",
-            backgroundColor: "inherit",
-            "& .MuiAlert-message": {
-              color: theme.palette.primary.error,
-              fontSize: "14px",
-            },
-          }}
-        >
-          {constants.error}
-        </Alert>
-      )}
       <Box align="center">
         <Button
           onClick={handleNextButtonClick}
