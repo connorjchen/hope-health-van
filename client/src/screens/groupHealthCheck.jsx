@@ -12,6 +12,9 @@ import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React, { useState } from "react";
+import Axios from "axios";
+
+const baseUrl = ""; // TODO: update when api deployed
 
 function GroupHealthCheck() {
   const theme = useTheme();
@@ -39,7 +42,17 @@ function GroupHealthCheck() {
       request,
     }); // send email to info@okbfoundation.org or have backend do it
     // if send is successful, navigate
-    navigate("/booking/group/confirmation");
+
+    Axios.post(`${baseUrl}/grouphealthcheck/appointment`, {
+      name: name,
+      organization: organization,
+      phone: phoneNumber,
+      email: email,
+      selectedDate: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
+      request: request,
+    })
+      .then(() => navigate("/booking/group/confirmation"))
+      .catch((err) => console.error(err));
   };
 
   return (
