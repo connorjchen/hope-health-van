@@ -13,6 +13,7 @@ import Faq from "./screens/faq";
 import Calendar from "./screens/calendar";
 import GroupHealthCheck from "./screens/groupHealthCheck";
 import GroupConfirm from "./screens/groupConfirm";
+import NotFound from "./screens/notFound";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -46,6 +47,7 @@ function App() {
                 path="/booking/:service/confirmation"
                 element={<Confirm />}
               />
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </ScrollToTop>
