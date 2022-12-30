@@ -1,4 +1,4 @@
-POST https://hope-health-kmlli04jx-okb-hope-foundation.vercel.app/server.js/booking/mobileVan/appointment
+POST https://hope-health-van.vercel.app/booking/mobileVan/appointment
 Content-Type: application/json
 
 {

@@ -22,7 +22,9 @@ router.post("/labservice/appointment", (request, response) => {
 	sendWhatsAppMessage()
 	bookLabService.save()
 	.then(data => {
+		console.log("Sending Lab Service Request...")
 		response.json(data) 
+		console.log("Lab Service Request Successfully Sent")
 	})
 	.catch(error => {
 		response.json(error)
