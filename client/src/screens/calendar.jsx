@@ -10,7 +10,7 @@ import {
 import { serviceConstants } from "./select";
 import Axios from "axios";
 
-const baseUrl = ""; // TODO: update when api deployed
+const baseUrl = "https://hope-health-van.vercel.app/booking";
 
 const locations = {
   labservices: 1,
