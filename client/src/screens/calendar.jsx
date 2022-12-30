@@ -8,6 +8,9 @@ import {
   Navigate,
 } from "react-router-dom";
 import { serviceConstants } from "./select";
+import Axios from "axios";
+
+const baseUrl = ""; // TODO: update when api deployed
 
 const locations = {
   labservices: 1,
@@ -92,9 +95,52 @@ function Calendar() {
               endTime,
             };
             console.log(payload);
-            navigate(`/booking/${service}/confirmation`, {
-              state: payload,
-            });
+
+            let body = {
+              dateTime: dayjs(payload.startTime)
+                .utc()
+                .format("h:mm A dddd, MMMM D YYYY"),
+              name: payload.name,
+              phone: payload.phoneNumber,
+              medicalRecord: payload.okbNumber,
+            };
+
+            if (service === "labservices") {
+              body = {
+                tests: payload.services,
+                ...body,
+              };
+            } else if (service === "mobilevan") {
+              body = {
+                locations: payload.services,
+                ...body,
+              };
+            } else if (service === "telehealth") {
+              body = {
+                services: payload.services,
+                ...body,
+              };
+            }
+
+            Axios.all([
+              () => {
+                // if (!okbNumber) Axios.post(`${baseUrl}/addPatient`, {
+                //   referenceId: request.body.referenceId,
+                //   name: payload.name,
+                //   phone: payload.phoneNumber,
+                //   email: payload.email,
+                //   dob: request.body.dob,
+                //   emergencyContact: request.body.emergencyContact,
+                //   medicalRecord: request.body.medicalRecord,
+                //   history: request.body.history,});
+                console.log("attempting to add new patient"); // TODO:  finalize data requried for new patients
+              },
+              Axios.post(`${baseUrl}/${service}/appointment`, body),
+            ]).then(() =>
+              navigate(`/booking/${service}/confirmation`, {
+                state: payload,
+              })
+            );
           })
           .catch((err) => console.error(err));
       })
