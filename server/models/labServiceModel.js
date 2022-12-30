@@ -18,11 +18,6 @@ const labServiceTemplate = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	previousUse: {
-		type: Boolean,
-		required: true,
-		default: false
-	},
 	medicalRecord: {
 		type: String,
 		required: false

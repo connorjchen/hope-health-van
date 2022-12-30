@@ -18,10 +18,6 @@ const telehealthTemplate = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	previousUse:{
-		type: Boolean,
-		required: true
-	},
 	medicalRecord: {
 		type: String,
 		required: false
