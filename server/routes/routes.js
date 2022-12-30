@@ -19,7 +19,7 @@ router.post("/labservice/appointment", (request, response) => {
 		medicalRecord: request.body.medicalRecord
 	})
 	sendEmail()
-	sendWhatsAppMessage()
+	// sendWhatsAppMessage()
 	bookLabService.save()
 	.then(data => {
 		console.log("Sending Lab Service Request...")
