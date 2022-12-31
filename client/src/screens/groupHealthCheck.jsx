@@ -11,12 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import React, { useState } from "react";
 import Axios from "axios";
 
 const baseUrl = "https://hope-health-van.vercel.app/booking";
 
 function GroupHealthCheck() {
+  dayjs.extend(utc);
   const theme = useTheme();
   const navigate = useNavigate();
   const [date, setDate] = useState(null);
@@ -37,11 +39,9 @@ function GroupHealthCheck() {
       organization,
       phoneNumber,
       email,
-      date, // format date to backend preferred format MAKE SURE TO CONVERT TO UTC / GMT TIME (GHANA LOCAL)
-      // dayjs(state.startTime).utc().format("h:mm A dddd, MMMM D YYYY") as seen in confirm.jsx converts to utc and formats to readable string
+      date,
       request,
-    }); // send email to info@okbfoundation.org or have backend do it
-    // if send is successful, navigate
+    });
 
     Axios.post(`${baseUrl}/grouphealthcheck/appointment`, {
       name: name,
@@ -51,8 +51,9 @@ function GroupHealthCheck() {
       selectedDate: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
       request: request,
     })
-      .then(() => navigate("/booking/group/confirmation"))
-      .catch((err) => console.error(err));
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err))
+      .then(() => navigate("/booking/group/confirmation"));
   };
 
   return (

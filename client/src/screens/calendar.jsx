@@ -8,6 +8,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { serviceConstants } from "./select";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import Axios from "axios";
 
 const baseUrl = "https://hope-health-van.vercel.app/booking";
@@ -19,6 +21,7 @@ const locations = {
 };
 
 function Calendar() {
+  dayjs.extend(utc);
   const theme = useTheme();
   const navigate = useNavigate();
   const { service } = useParams();
@@ -87,8 +90,6 @@ function Calendar() {
           .then((response) => {
             const { start_time: startTime, end_time: endTime } =
               response.resource;
-            // MAKE SURE THIS IS UTC / GMT - GHANA LOCAL TIME
-            // dayjs(state.startTime).utc().format("h:mm A dddd, MMMM D YYYY") as seen in confirm.jsx converts to utc and formats to readable string
             payload = {
               ...payload,
               startTime,
@@ -97,6 +98,8 @@ function Calendar() {
             console.log(payload);
 
             let body = {
+              services: payload.services,
+              location: service !== "telehealth" ? payload.location : "online", // TODO: finalize what location specified for telehealth
               dateTime: dayjs(payload.startTime)
                 .utc()
                 .format("h:mm A dddd, MMMM D YYYY"),
@@ -105,37 +108,21 @@ function Calendar() {
               medicalRecord: payload.okbNumber,
             };
 
-            if (service === "labservices") {
-              body = {
-                tests: payload.services,
-                ...body,
-              };
-            } else if (service === "mobilevan") {
-              body = {
-                locations: payload.services,
-                ...body,
-              };
-            } else if (service === "telehealth") {
-              body = {
-                services: payload.services,
-                ...body,
-              };
-            }
-
             Axios.all([
               () => {
-                // if (!okbNumber) Axios.post(`${baseUrl}/addPatient`, {
-                //   referenceId: request.body.referenceId,
-                //   name: payload.name,
-                //   phone: payload.phoneNumber,
-                //   email: payload.email,
-                //   dob: request.body.dob,
-                //   emergencyContact: request.body.emergencyContact,
-                //   medicalRecord: request.body.medicalRecord,
-                //   history: request.body.history,});
+                if (!okbNumber)
+                  Axios.post(`${baseUrl}/addPatient`, {
+                    name: payload.name,
+                    phone: payload.phoneNumber,
+                    email: payload.email,
+                  })
+                    .then((response) => console.log(response))
+                    .catch((err) => console.error(err));
                 console.log("attempting to add new patient"); // TODO:  finalize data requried for new patients
               },
-              Axios.post(`${baseUrl}/${service}/appointment`, body),
+              Axios.post(`${baseUrl}/${service}/appointment`, body)
+                .then((response) => console.log(response))
+                .catch((err) => console.error(err)),
             ]).then(() =>
               navigate(`/booking/${service}/confirmation`, {
                 state: payload,
