@@ -1,20 +1,14 @@
-const { Client } = require('whatsapp-web.js');
+const wbm = require('wbm')
+// WhatsApp Message Integration
+const sendWhatsAppMessage = function(){
+    wbm.start()
+    .then(async () => {
+        const phones = ['+16095539005'];
+        const message = 'hello';
+        await wbm.send(phones, message);
+        await wbm.end();
+    })
+    .catch(err => console.log(err));
+}
 
-const client = new Client();
-
-client.on('qr', (qr) => {
-    // Generate and scan this code with your phone
-    console.log('QR RECEIVED', qr);
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-});
-
-client.on('message', msg => {
-    if (msg.body == '!ping') {
-        msg.reply('pong');
-    }
-});
-
-client.initialize();
+module.exports = sendWhatsAppMessage;
