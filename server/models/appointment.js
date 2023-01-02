@@ -1,10 +1,14 @@
 const mongoose = require('mongoose')
 
-const telehealthTemplate = new mongoose.Schema({
+const appointmentTemplate = new mongoose.Schema({
 	services: {
 		type: Array,
 		"default": [],
 		required: true
+	},
+	location: {
+		type: String,
+		required: false
 	},
 	dateTime: {
 		type: String,
@@ -18,7 +22,7 @@ const telehealthTemplate = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	medicalRecord: {
+	okb_id: {
 		type: String,
 		required: false
 	},
@@ -28,4 +32,4 @@ const telehealthTemplate = new mongoose.Schema({
 	}
 })
 
-module.exports = mongoose.model('telehealthTable', telehealthTemplate)
+module.exports = mongoose.model('appointmentTable', appointmentTemplate)

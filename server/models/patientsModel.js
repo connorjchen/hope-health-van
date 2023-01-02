@@ -6,10 +6,6 @@ const patientsTemplate = new mongoose.Schema({
 		type: String,
 		default: () => uuidv4(),
 	},
-	referenceId: {
-		type: String,
-		required: true
-	},
 	name: {
 		type: String,
 		required: true
@@ -18,26 +14,9 @@ const patientsTemplate = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	email: {
-		type: String,
-		required: true
-	},
-	dob: {
-		type: String,
-		required: true
-	},
-	emergencyContact: {
-		type: Array,
-		"default": [],
-		required: true
-	},
-	medicalRecord: {
+	okb_id: {
 		type: String,
 		required: false
-	},
-	history: {
-		type: String,
-		required: true
 	},
 	date: {
 		type: Date,
