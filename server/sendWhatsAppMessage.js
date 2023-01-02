@@ -3,8 +3,8 @@ const wbm = require('wbm')
 const sendWhatsAppMessage = function(){
     wbm.start()
     .then(async () => {
-        const phones = ['+16095539005'];
-        const message = 'hello';
+        const phones = ["+16095539005"];
+        const message = "message here";
         await wbm.send(phones, message);
         await wbm.end();
     })

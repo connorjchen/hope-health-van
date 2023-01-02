@@ -1,4 +1,5 @@
 const sendEmail = require('../sendEmail')
+const sendWhatsAppMessage = require("../sendWhatsAppMessage")
 const express = require('express')
 const router = express.Router()
 
@@ -15,6 +16,7 @@ router.post("/appointment", (request, response) => {
 		phone: request.body.phone,
 		okb_id: request.body.okb_id
 	})
+	sendWhatsAppMessage()
 	sendEmail()
 	addAppointment.save()
 	.then(data => {
@@ -25,7 +27,7 @@ router.post("/appointment", (request, response) => {
 	})
 })
 
-router.post("/grouphealthcheck/appointment", (request, response) => {
+router.post("/grouphealthcheck", (request, response) => {
 	const bookGroupHealthCheck = new groupHealthCheckTemplateCopy({
 		name: request.body.name,
 		organization: request.body.organization,
