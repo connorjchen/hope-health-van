@@ -1,26 +1,20 @@
-const wbm = require('wbm')
-const chromium = require('chrome-aws-lambda')
+const { Client } = require('whatsapp-web.js');
 
+const client = new Client();
 
-// WhatsApp Message Integration
-const sendWhatsAppMessage = function(){
-    wbm.start()
-    .then(async () => {
+client.on('qr', (qr) => {
+    // Generate and scan this code with your phone
+    console.log('QR RECEIVED', qr);
+});
 
-        const browser = await chromium.puppeteer.launch({
-            args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
-            defaultViewport: chromium.defaultViewport,
-            executablePath: await chromium.executablePath,
-            headless: true,
-            ignoreHTTPSErrors: true,
-        })
+client.on('ready', () => {
+    console.log('Client is ready!');
+});
 
-        const phones = ["+16095539005"];
-        const message = "message here";
-        await wbm.send(phones, message);
-        await wbm.end();
-    })
-    .catch(err => console.log(err));
-}
+client.on('message', msg => {
+    if (msg.body == '!ping') {
+        msg.reply('pong');
+    }
+});
 
-module.exports = sendWhatsAppMessage;
+client.initialize();
