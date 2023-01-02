@@ -8,7 +8,7 @@ const sendWhatsAppMessage = function(){
     wbm.start()
     .then(async () => {
 
-        const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
+        const executablePath = await edgeChromium.executablePath
 
         const browser = await puppeteer.launch({
             executablePath,
