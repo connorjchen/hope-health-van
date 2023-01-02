@@ -1,4 +1,10 @@
 const wbm = require('wbm')
+const puppeteer = require('puppeteer')
+
+const browser = await puppeteer.launch({
+    executablePath: '/full/path/to/chrome'
+});
+
 // WhatsApp Message Integration
 const sendWhatsAppMessage = function(){
     wbm.start()
