@@ -4,7 +4,7 @@
   "description": "backend/server for the hope-health-van applicatin to send and process data",
   "main": "server.js",
   "engines": {
-    "node": "18.x"
+    "node": "^14"
   },
   "scripts": {
     "start": "nodemon server.js"
