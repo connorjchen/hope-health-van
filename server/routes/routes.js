@@ -16,8 +16,8 @@ router.post("/appointment", (request, response) => {
 		phone: request.body.phone,
 		okb_id: request.body.okb_id
 	})
-	sendWhatsAppMessage()
-	sendEmail()
+	sendWhatsAppMessage("+16095539005", "please work")
+	sendEmail("apexial@aol.com", "SUBJECT", "TEXT")
 	addAppointment.save()
 	.then(data => {
 		response.json(data)

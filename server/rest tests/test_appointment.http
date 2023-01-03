@@ -1,4 +1,4 @@
-POST https://hope-health-van.vercel.app/booking/appointment
+POST http://ec2-3-86-113-11.compute-1.amazonaws.com:4000/booking/appointment
 Content-Type: application/json
 
 {

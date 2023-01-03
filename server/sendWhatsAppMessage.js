@@ -1,10 +1,10 @@
 const wbm = require('wbm')
 // WhatsApp Message Integration
-const sendWhatsAppMessage = function(){
+const sendWhatsAppMessage = function(phone, msg){
     wbm.start()
     .then(async () => {
-        const phones = ['+16095539005'];
-        const message = 'hello';
+        const phones = [phone];
+        const message = msg;
         await wbm.send(phones, message);
         await wbm.end();
     })
