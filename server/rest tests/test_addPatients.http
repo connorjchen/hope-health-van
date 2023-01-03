@@ -1,4 +1,4 @@
-POST https://hope-health-van.vercel.app/booking/addPatient
+POST https://hope-health-van-server.onrender.com/booking/addPatient
 Content-Type: application/json
 
 {
