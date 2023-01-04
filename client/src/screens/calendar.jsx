@@ -97,30 +97,30 @@ function Calendar() {
             };
             console.log(payload);
 
-            let body = {
-              services: payload.services,
-              location: service !== "telehealth" ? payload.location : "online", // TODO: finalize what location specified for telehealth
-              dateTime: dayjs(payload.startTime)
-                .utc()
-                .format("h:mm A dddd, MMMM D YYYY"),
-              name: payload.name,
-              phone: payload.phoneNumber,
-              medicalRecord: payload.okbNumber,
-            };
-
             Axios.all([
               () => {
-                if (!okbNumber)
+                if (!okbNumber) {
                   Axios.post(`${baseUrl}/addPatient`, {
                     name: payload.name,
                     phone: payload.phoneNumber,
-                    email: payload.email,
+                    okb_id: 0,
                   })
                     .then((response) => console.log(response))
                     .catch((err) => console.error(err));
-                console.log("attempting to add new patient"); // TODO:  finalize data requried for new patients
+                }
               },
-              Axios.post(`${baseUrl}/${service}/appointment`, body)
+              Axios.post(`${baseUrl}/appointment`, {
+                services: payload.services,
+                appointmentType: service,
+                location:
+                  service !== "telehealth" ? payload.location : "online", // TODO: finalize what location specified for telehealth
+                dateTime: dayjs(payload.startTime)
+                  .utc()
+                  .format("h:mm A dddd, MMMM D YYYY"),
+                name: payload.name,
+                phone: payload.phoneNumber,
+                okb_id: payload.okbNumber,
+              })
                 .then((response) => console.log(response))
                 .catch((err) => console.error(err)),
             ]).then(() =>
