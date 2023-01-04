@@ -12,7 +12,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import Axios from "axios";
 
-const baseUrl = "https://hope-health-van.vercel.app/booking";
+const baseUrl = "http://ec2-3-92-226-174.compute-1.amazonaws.com:4000/booking/";
 
 const locations = {
   labservices: 1,
