@@ -97,8 +97,19 @@ function Calendar() {
             };
             console.log(payload);
 
-            Axios.all([
-              () => {
+            Axios.post(`${baseUrl}/appointment`, {
+              services: payload.services,
+              appointmentType: service,
+              location: payload.location,
+              dateTime: dayjs(payload.startTime)
+                .utc()
+                .format("h:mm A dddd, MMMM D YYYY"),
+              name: payload.name,
+              phone: payload.phoneNumber,
+              okb_id: payload.okbNumber,
+            })
+              .then((response) => {
+                console.log(response);
                 if (!okbNumber) {
                   Axios.post(`${baseUrl}/addPatient`, {
                     name: payload.name,
@@ -108,25 +119,13 @@ function Calendar() {
                     .then((response) => console.log(response))
                     .catch((err) => console.error(err));
                 }
-              },
-              Axios.post(`${baseUrl}/appointment`, {
-                services: payload.services,
-                appointmentType: service,
-                location: payload.location,
-                dateTime: dayjs(payload.startTime)
-                  .utc()
-                  .format("h:mm A dddd, MMMM D YYYY"),
-                name: payload.name,
-                phone: payload.phoneNumber,
-                okb_id: payload.okbNumber,
               })
-                .then((response) => console.log(response))
-                .catch((err) => console.error(err)),
-            ]).then(() =>
-              navigate(`/booking/${service}/confirmation`, {
-                state: payload,
-              })
-            );
+              .catch((err) => console.error(err))
+              .then(() =>
+                navigate(`/booking/${service}/confirmation`, {
+                  state: payload,
+                })
+              );
           })
           .catch((err) => console.error(err));
       })
