@@ -1,8 +1,18 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import { useCalendlyEventListener, InlineWidget } from "react-calendly";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  Navigate,
+} from "react-router-dom";
 import { serviceConstants } from "./select";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import Axios from "axios";
+
+const baseUrl = "https://hope-health-van.vercel.app/booking";
 
 const locations = {
   labservices: 1,
@@ -11,10 +21,15 @@ const locations = {
 };
 
 function Calendar() {
+  dayjs.extend(utc);
   const theme = useTheme();
   const navigate = useNavigate();
   const { service } = useParams();
   const { state } = useLocation();
+
+  if (state === null) {
+    return <Navigate replace to={`/booking/${service}/select`} />;
+  }
 
   const handleCalendlySubmit = (e) => {
     let payload = {};
@@ -75,17 +90,44 @@ function Calendar() {
           .then((response) => {
             const { start_time: startTime, end_time: endTime } =
               response.resource;
-            // MAKE SURE THIS IS UTC / GMT - GHANA LOCAL TIME
-            // dayjs(state.startTime).utc().format("h:mm A dddd, MMMM D YYYY") as seen in confirm.jsx converts to utc and formats to readable string
             payload = {
               ...payload,
               startTime,
               endTime,
             };
             console.log(payload);
-            navigate(`/booking/${service}/confirmation`, {
-              state: payload,
-            });
+
+            Axios.all([
+              () => {
+                if (!okbNumber) {
+                  Axios.post(`${baseUrl}/addPatient`, {
+                    name: payload.name,
+                    phone: payload.phoneNumber,
+                    okb_id: 0,
+                  })
+                    .then((response) => console.log(response))
+                    .catch((err) => console.error(err));
+                }
+              },
+              Axios.post(`${baseUrl}/appointment`, {
+                services: payload.services,
+                appointmentType: service,
+                location:
+                  service !== "telehealth" ? payload.location : "online", // TODO: finalize what location specified for telehealth
+                dateTime: dayjs(payload.startTime)
+                  .utc()
+                  .format("h:mm A dddd, MMMM D YYYY"),
+                name: payload.name,
+                phone: payload.phoneNumber,
+                okb_id: payload.okbNumber,
+              })
+                .then((response) => console.log(response))
+                .catch((err) => console.error(err)),
+            ]).then(() =>
+              navigate(`/booking/${service}/confirmation`, {
+                state: payload,
+              })
+            );
           })
           .catch((err) => console.error(err));
       })

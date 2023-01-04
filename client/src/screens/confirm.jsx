@@ -1,7 +1,12 @@
 import { Box, useTheme, Typography, Divider, Button } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
 import CheckIcon from "@mui/icons-material/CheckCircleOutlineRounded";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import {
+  useNavigate,
+  useParams,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import { serviceConstants } from "./select";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -12,6 +17,10 @@ function Confirm() {
   const navigate = useNavigate();
   let { service } = useParams();
   const { state } = useLocation();
+
+  if (state === null) {
+    return <Navigate replace to={`/booking/${service}/select`} />;
+  }
 
   return (
     <Box>
@@ -53,6 +62,7 @@ function Confirm() {
               sx={{
                 borderWidth: "1px",
                 borderColor: theme.palette.purple.dark,
+                backgroundColor: theme.palette.purple.dark,
               }}
             />
           </Box>

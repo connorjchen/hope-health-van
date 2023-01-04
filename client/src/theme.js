@@ -139,6 +139,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderColor: lightGrey,
+          backgroundColor: lightGrey,
         },
       },
     },
