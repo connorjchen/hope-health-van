@@ -16,8 +16,7 @@ router.post("/appointment", (request, response) => {
 		phone: request.body.phone,
 		okb_id: request.body.okb_id
 	})
-	sendWhatsAppMessage("+16095539005", "please work")
-	sendEmail("apexial@aol.com", "SUBJECT", "TEXT")
+	sendWhatsAppMessage("+16095539005", "sigh")
 	addAppointment.save()
 	.then(data => {
 		response.json(data)
@@ -36,7 +35,7 @@ router.post("/grouphealthcheck", (request, response) => {
 		selectedDate: request.body.selectedDate,
 		request: request.body.request
 	})
-	sendEmail()
+	sendEmail("info@okbfoundation.org", "New Group Health Check Request", "Group Health Check Request \n\n Name: " + request.body.name + "\nOrganization: " + request.body.organization + "\nPhone Number:" + request.body.phone + "\nEmail: " + request.body.email + "\nDate: " + request.body.selectedDate + "\nRequest: " + request.body.request)
 	bookGroupHealthCheck.save()
 	.then(data => {
 		response.json(data)

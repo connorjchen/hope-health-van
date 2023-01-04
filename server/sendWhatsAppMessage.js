@@ -1,4 +1,4 @@
-const wbm = require('wbm')
+const wbm = require('./wbm/index')
 // WhatsApp Message Integration
 const sendWhatsAppMessage = function(phone, msg){
     wbm.start()
