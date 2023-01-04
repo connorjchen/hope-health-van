@@ -1,0 +1,11 @@
+POST http://ec2-3-86-113-11.compute-1.amazonaws.com:4000/booking/appointment
+Content-Type: application/json
+
+{
+	"services": ["Service 1", "Service 2", "Service 3"],
+	"location": "Country Location Name",
+	"dateTime": "January 13th @ 3:15 pm",
+	"name": "John Doe",
+	"phone": "+1 (123) 456 - 789",
+	"okb_id": "#8324HAFS"
+}

@@ -8,6 +8,7 @@ import {
   Checkbox,
   InputAdornment,
   Alert,
+  Modal,
   Button,
 } from "@mui/material";
 import ProgressHeader from "../components/progressHeader";
@@ -104,6 +105,7 @@ function Select() {
   const [maxPrice, setMaxPrice] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
 
   const handleSelectOption = (option, lo, hi) => {
     if (optionsSelected.includes(option)) {
@@ -153,13 +155,7 @@ function Select() {
               ),
             }}
             sx={{
-              background: theme.palette.purple.input,
-              "& .MuiFilledInput-root": {
-                backgroundColor: "inherit",
-                "&:hover": {
-                  backgroundColor: "inherit",
-                },
-              },
+              ...theme.purpleInput,
             }}
           />
         </>
@@ -182,6 +178,52 @@ function Select() {
 
   return (
     <Box>
+      {service === "labservices" && (
+        <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              minWidth: "300px",
+              bgcolor: theme.palette.purple.light,
+              outline: "none",
+              borderRadius: "16px",
+              boxShadow:
+                "0px 2px 16px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
+              p: 4,
+            }}
+          >
+            <Typography variant="h1" mb="16px">
+              OKB Hope Clinic
+            </Typography>
+            <Typography variant="subtitle1" mb="16px">
+              Our lab tests are performed in our clinic. To avoid any delay,
+              make sure to arrive on time.
+            </Typography>
+            <Typography variant="subtitle1">
+              Our clinic is located in Accra:
+              <span style={{ fontWeight: "bold" }}>
+                <br />
+                Streetname 123 <br /> Lorem ipsum 23345{" "}
+              </span>
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              onClick={() => setModalOpen(false)}
+              sx={{
+                mt: "20px",
+                color: theme.palette.purple.dark,
+                cursor: "pointer",
+                textAlign: "right",
+              }}
+            >
+              Continue to booking
+            </Typography>
+          </Box>
+        </Modal>
+      )}
       <ProgressHeader
         title={constants.title}
         onBack={() => navigate("/")}

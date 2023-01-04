@@ -1,10 +1,14 @@
 const mongoose = require('mongoose')
 
-const labServiceTemplate = new mongoose.Schema({
-	tests: {
+const appointmentTemplate = new mongoose.Schema({
+	services: {
 		type: Array,
 		"default": [],
 		required: true
+	},
+	location: {
+		type: String,
+		required: false
 	},
 	dateTime: {
 		type: String,
@@ -18,12 +22,7 @@ const labServiceTemplate = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	previousUse: {
-		type: Boolean,
-		required: true,
-		default: false
-	},
-	medicalRecord: {
+	okb_id: {
 		type: String,
 		required: false
 	},
@@ -33,4 +32,4 @@ const labServiceTemplate = new mongoose.Schema({
 	}
 })
 
-module.exports = mongoose.model('labServiceTable', labServiceTemplate)
+module.exports = mongoose.model('appointmentTable', appointmentTemplate)

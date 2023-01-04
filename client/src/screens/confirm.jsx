@@ -89,9 +89,9 @@ function Confirm() {
             <br />
             {state.okbNumber ? "Known patient" : "New patient"}
           </Typography>
-          <Typography variant="h5" my="32px">
+          {/* <Typography variant="h5" my="32px">
             We will send you a reminder 24-48 hours before your appointment
-          </Typography>
+          </Typography> */}
           <Button
             onClick={() => navigate("/")}
             sx={{
