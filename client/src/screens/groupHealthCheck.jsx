@@ -15,7 +15,7 @@ import utc from "dayjs/plugin/utc";
 import React, { useState } from "react";
 import Axios from "axios";
 
-const baseUrl = "http://ec2-3-92-226-174.compute-1.amazonaws.com:4000/booking";
+const baseUrl = "https://hopehealthvanserver.live/booking";
 
 function GroupHealthCheck() {
   dayjs.extend(utc);
