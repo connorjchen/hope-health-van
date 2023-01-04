@@ -112,8 +112,7 @@ function Calendar() {
               Axios.post(`${baseUrl}/appointment`, {
                 services: payload.services,
                 appointmentType: service,
-                location:
-                  service !== "telehealth" ? payload.location : "online", // TODO: finalize what location specified for telehealth
+                location: payload.location,
                 dateTime: dayjs(payload.startTime)
                   .utc()
                   .format("h:mm A dddd, MMMM D YYYY"),
