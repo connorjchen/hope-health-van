@@ -206,7 +206,7 @@ function Select() {
               Our clinic is located in Kumasi:
               <span style={{ fontWeight: "bold" }}>
                 <br />
-                Streetname 123 <br /> Lorem ipsum 23345{" "}
+                Tech Junction <br /> Behind Juliponia Pharmacy
               </span>
             </Typography>
             <Typography
