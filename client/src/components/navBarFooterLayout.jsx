@@ -7,7 +7,7 @@ class NavBarFooterLayout extends React.Component {
   render() {
     return (
       <>
-        {window.location.href.includes("booking") && <NeedHelpButton />}
+        <NeedHelpButton />
         <NavBar />
         <Outlet />
         <Footer />

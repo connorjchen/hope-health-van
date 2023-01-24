@@ -50,7 +50,7 @@ function GroupHealthCheck() {
       email: email,
       date: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
       request: request,
-    })
+    });
     // Axios.post(`${baseUrl}/grouphealthcheck`, {
     //   name: name,
     //   organization: organization,
@@ -76,11 +76,9 @@ function GroupHealthCheck() {
         },
         "GHgTWstffaA8FCwY8"
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        }
-      )
+      .then((result) => {
+        console.log(result.text);
+      })
       .catch((err) => console.error(err))
       .then(() => navigate("/booking/group/confirmation"));
   };

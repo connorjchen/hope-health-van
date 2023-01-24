@@ -87,7 +87,7 @@ function Calendar() {
 
         navigate(`/booking/${service}/confirmation`, {
           state: payload,
-        })
+        });
 
         // fetch(e.data.payload.event.uri, options)
         //   .then((response) => response.json())
