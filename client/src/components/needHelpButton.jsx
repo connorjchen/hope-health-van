@@ -32,7 +32,7 @@ function NeedHelpButton() {
             us at:
           </Typography>
           <Typography variant="subtitle1">
-            <a href="tel:+233 540 458 530">+233 540 458 530</a> // EDIT
+            <a href="tel:+233 540 458 530">+233 540 458 530</a>
           </Typography>
           <Typography
             variant="subtitle1"

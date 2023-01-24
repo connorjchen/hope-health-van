@@ -203,7 +203,7 @@ function Select() {
               make sure to arrive on time.
             </Typography>
             <Typography variant="subtitle1">
-              Our clinic is located in Accra:
+              Our clinic is located in Kumasi:
               <span style={{ fontWeight: "bold" }}>
                 <br />
                 Streetname 123 <br /> Lorem ipsum 23345{" "}

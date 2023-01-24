@@ -54,7 +54,7 @@ function NavBar(props) {
           }}
         >
           <Link href="/">
-            <Typography>Logo</Typography>
+            <img src="/logo.png" alt="logo" width="40px" height="40px" />
           </Link>
           <IconButton
             color="inherit"

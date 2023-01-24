@@ -14,6 +14,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import React, { useState } from "react";
 import Axios from "axios";
+import emailjs from "emailjs-com";
 
 const baseUrl = "https://hopehealthvanserver.live/booking";
 
@@ -42,16 +43,44 @@ function GroupHealthCheck() {
       date,
       request,
     });
-
-    Axios.post(`${baseUrl}/grouphealthcheck`, {
+    console.log({
       name: name,
       organization: organization,
       phone: phoneNumber,
       email: email,
-      selectedDate: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
+      date: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
       request: request,
     })
-      .then((response) => console.log(response))
+    // Axios.post(`${baseUrl}/grouphealthcheck`, {
+    //   name: name,
+    //   organization: organization,
+    //   phone: phoneNumber,
+    //   email: email,
+    //   selectedDate: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
+    //   request: request,
+    // })
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.error(err))
+    //   .then(() => navigate("/booking/group/confirmation"));
+    emailjs
+      .send(
+        "service_e41ebuc",
+        "template_qfd23sa",
+        {
+          name: name,
+          organization: organization,
+          phone: phoneNumber,
+          email: email,
+          date: dayjs(date).utc().format("h:mm A dddd, MMMM D YYYY"),
+          request: request,
+        },
+        "GHgTWstffaA8FCwY8"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        }
+      )
       .catch((err) => console.error(err))
       .then(() => navigate("/booking/group/confirmation"));
   };
