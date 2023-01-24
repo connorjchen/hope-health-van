@@ -16,7 +16,7 @@ function NeedHelpButton() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             minWidth: "300px",
-            bgcolor: theme.palette.purple.light,
+            bgcolor: theme.palette.blue.light,
             outline: "none",
             borderRadius: "16px",
             boxShadow:
@@ -39,7 +39,7 @@ function NeedHelpButton() {
             onClick={() => setModalOpen(false)}
             sx={{
               mt: "20px",
-              color: theme.palette.purple.dark,
+              color: theme.palette.blue.dark,
               cursor: "pointer",
               textAlign: "right",
             }}
@@ -51,8 +51,8 @@ function NeedHelpButton() {
       <Button
         onClick={() => setModalOpen(true)}
         sx={{
-          background: theme.palette.purple.medium,
-          color: theme.palette.purple.dark,
+          background: theme.palette.blue.medium,
+          color: theme.palette.blue.dark,
           borderRadius: "16px 16px 0 0",
           padding: "8px 16px",
           position: "fixed",

@@ -1,10 +1,10 @@
-import { createTheme, alpha } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-const darkPurple = "#6750A4";
-const mediumPurple = "#E8DEF8";
-const inputPurple = "#E7E0EC";
-const lightPurple = "#FFFBFE";
-const greyishPurple = "rgba(231, 224, 236, 0.49);";
+const darkBlue = "#2B75D6";
+const mediumBlue = "#C6E0FB";
+const lightBlue = "#F5F9FF";
+const greyishBlue = "#D9E2ED";
+
 const white = "#FFFFFF";
 const lightGrey = "#CAC4D0";
 const darkGrey = "#1C1B1F";
@@ -66,12 +66,11 @@ const theme = createTheme({
     secondary: {
       main: darkGrey,
     },
-    purple: {
-      dark: darkPurple,
-      medium: mediumPurple,
-      greyish: greyishPurple,
-      light: lightPurple,
-      input: inputPurple,
+    blue: {
+      dark: darkBlue,
+      medium: mediumBlue,
+      greyish: greyishBlue,
+      light: lightBlue,
     },
   },
   components: {
@@ -97,9 +96,9 @@ const theme = createTheme({
     MuiLinearProgress: {
       styleOverrides: {
         root: {
-          background: greyishPurple,
+          background: greyishBlue,
           "& .MuiLinearProgress-barColorPrimary": {
-            backgroundColor: darkPurple,
+            backgroundColor: darkBlue,
           },
         },
       },
@@ -107,7 +106,7 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          backgroundColor: greyishPurple,
+          backgroundColor: greyishBlue,
           borderRadius: "5px",
           label: {
             fontSize: "16px",
@@ -122,7 +121,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "&.Mui-checked": {
-            color: darkPurple,
+            color: darkBlue,
           },
         },
       },
@@ -144,17 +143,17 @@ const theme = createTheme({
       },
     },
   },
-  purpleButton: {
-    background: darkPurple,
+  blueButton: {
+    background: darkBlue,
     display: "block",
     borderRadius: "100px",
     padding: "8px 16px",
     "&:hover": {
-      background: darkPurple,
+      background: darkBlue,
     },
   },
-  purpleInput: {
-    background: inputPurple,
+  blueInput: {
+    background: lightBlue,
     "& .MuiFilledInput-root": {
       backgroundColor: "inherit",
       "&:hover": {

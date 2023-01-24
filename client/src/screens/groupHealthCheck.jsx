@@ -127,7 +127,7 @@ function GroupHealthCheck() {
           onChange={(e) => setName(e.target.value)}
           sx={{
             mb: "16px",
-            ...theme.purpleInput,
+            ...theme.blueInput,
           }}
         />
         <TextField
@@ -140,7 +140,7 @@ function GroupHealthCheck() {
           onChange={(e) => setOrganization(e.target.value)}
           sx={{
             mb: "16px",
-            ...theme.purpleInput,
+            ...theme.blueInput,
           }}
         />
         <TextField
@@ -153,7 +153,7 @@ function GroupHealthCheck() {
           onChange={(e) => setPhoneNumber(e.target.value)}
           sx={{
             mb: "16px",
-            ...theme.purpleInput,
+            ...theme.blueInput,
           }}
         />
         <TextField
@@ -165,7 +165,7 @@ function GroupHealthCheck() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           sx={{
-            ...theme.purpleInput,
+            ...theme.blueInput,
           }}
         />
         <Typography variant="subtitle1" my="24px" align="center">
@@ -186,7 +186,7 @@ function GroupHealthCheck() {
                 color="secondary"
                 sx={{
                   mb: "16px",
-                  ...theme.purpleInput,
+                  ...theme.blueInput,
                 }}
               />
             )}
@@ -204,14 +204,14 @@ function GroupHealthCheck() {
           onChange={(e) => setRequest(e.target.value)}
           sx={{
             mb: "40px",
-            ...theme.purpleInput,
+            ...theme.blueInput,
           }}
         />
         <Box align="center">
           <Button
             onClick={handleButtonClick}
             sx={{
-              ...theme.purpleButton,
+              ...theme.blueButton,
               px: "40px",
             }}
           >

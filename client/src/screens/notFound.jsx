@@ -22,7 +22,7 @@ function NotFound() {
         <Button
           onClick={() => navigate("/")}
           sx={{
-            ...theme.purpleButton,
+            ...theme.blueButton,
           }}
         >
           Go to home page

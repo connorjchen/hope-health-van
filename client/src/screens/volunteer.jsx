@@ -41,7 +41,7 @@ function Volunteer() {
           <Typography variant="h5" mt="32px" mb="24px">
             Volunteer with us
           </Typography>
-          <Button sx={{ ...theme.purpleButton }}>Sign Up</Button>
+          <Button sx={{ ...theme.blueButton }}>Sign Up</Button>
         </Box>
         <Divider
           sx={{

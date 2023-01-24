@@ -155,7 +155,7 @@ function Select() {
               ),
             }}
             sx={{
-              ...theme.purpleInput,
+              ...theme.blueInput,
             }}
           />
         </>
@@ -187,7 +187,7 @@ function Select() {
               left: "50%",
               transform: "translate(-50%, -50%)",
               minWidth: "300px",
-              bgcolor: theme.palette.purple.light,
+              bgcolor: theme.palette.blue.light,
               outline: "none",
               borderRadius: "16px",
               boxShadow:
@@ -214,7 +214,7 @@ function Select() {
               onClick={() => setModalOpen(false)}
               sx={{
                 mt: "20px",
-                color: theme.palette.purple.dark,
+                color: theme.palette.blue.dark,
                 cursor: "pointer",
                 textAlign: "right",
               }}
@@ -269,7 +269,7 @@ function Select() {
             <Typography variant="h5" px="30px">
               {title}
             </Typography>
-            <Box px="30px" sx={{ backgroundColor: theme.palette.purple.light }}>
+            <Box px="30px" sx={{ backgroundColor: theme.palette.blue.light }}>
               <FormGroup>
                 {constants.options[title].map(([test, lo, hi]) => {
                   if (
@@ -300,7 +300,7 @@ function Select() {
         <Button
           onClick={handleNextButtonClick}
           sx={{
-            ...theme.purpleButton,
+            ...theme.blueButton,
             px: "40px",
           }}
         >

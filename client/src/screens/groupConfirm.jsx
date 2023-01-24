@@ -31,7 +31,7 @@ function GroupConfirm() {
           <Button
             onClick={() => navigate("/")}
             sx={{
-              ...theme.purpleButton,
+              ...theme.blueButton,
               px: "30px",
             }}
           >

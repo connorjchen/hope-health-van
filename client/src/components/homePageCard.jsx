@@ -13,7 +13,7 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
         border: "1px solid",
         borderColor: theme.palette.primary.outline,
         borderRadius: "12px",
-        background: theme.palette.purple.light,
+        background: theme.palette.blue.light,
         marginBottom: "16px",
       }}
     >
@@ -23,7 +23,7 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
             width: "48px",
             height: "48px",
             borderRadius: "50%",
-            background: theme.palette.purple.dark,
+            background: theme.palette.blue.dark,
             color: theme.palette.primary.main,
             display: "flex",
             justifyContent: "center",
@@ -48,7 +48,7 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
       <Button
         onClick={() => navigate(buttonUrl)}
         sx={{
-          ...theme.purpleButton,
+          ...theme.blueButton,
           marginLeft: "auto",
         }}
       >

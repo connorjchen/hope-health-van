@@ -10,7 +10,7 @@ const FaqPageCard = ({ question, answer }) => {
         border: "1px solid",
         borderColor: theme.palette.primary.outline,
         borderRadius: "12px",
-        background: theme.palette.purple.light,
+        background: theme.palette.blue.light,
         marginBottom: "16px",
       }}
     >

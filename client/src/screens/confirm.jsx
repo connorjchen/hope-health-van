@@ -61,8 +61,8 @@ function Confirm() {
             <Divider
               sx={{
                 borderWidth: "1px",
-                borderColor: theme.palette.purple.dark,
-                backgroundColor: theme.palette.purple.dark,
+                borderColor: theme.palette.blue.dark,
+                backgroundColor: theme.palette.blue.dark,
               }}
             />
           </Box>
@@ -95,7 +95,7 @@ function Confirm() {
           <Button
             onClick={() => navigate("/")}
             sx={{
-              ...theme.purpleButton,
+              ...theme.blueButton,
               px: "30px",
             }}
           >

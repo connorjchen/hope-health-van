@@ -93,7 +93,7 @@ function NavBar(props) {
         >
           <Box
             onClick={handleDrawerToggle}
-            sx={{ background: theme.palette.purple.light }}
+            sx={{ background: theme.palette.blue.light }}
           >
             <List>
               {navItems.map(([title, url]) => (

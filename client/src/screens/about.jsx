@@ -44,7 +44,7 @@ function ProfileCard({ image, name, role }) {
           <CardMedia component="img" height="auto" image={image} alt="image" />
           <CardContent
             sx={{
-              background: theme.palette.purple.light,
+              background: theme.palette.blue.light,
             }}
           >
             <Typography variant="body1">{name}</Typography>
