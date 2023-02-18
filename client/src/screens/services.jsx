@@ -6,7 +6,6 @@ import PriceRangeList from "../components/priceRangeList";
 function Services() {
   return (
     <Box>
-      <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
       <Box
         sx={{
           maxWidth: "md",
@@ -45,14 +44,6 @@ function Services() {
             kidney disease, or you are seeking screening options for diseases
             like liver disease, we can help you and your patients get answers.
           </Typography>
-          <PriceRangeList
-            items={[
-              "Lorem ipsum dolor: GH$1 - GH$2",
-              "Sit amet, consetetur: GH$1 - GH$2",
-              "Sadipscing elitr: GH$1 - GH$2",
-              "Sed diam nonumy eirmod: GH$1 - GH$2",
-            ]}
-          />
         </ServicesPageCard>
         <ServicesPageCard
           title="Mobile Van"
@@ -65,14 +56,6 @@ function Services() {
             point-of-care lab diagnostics, healthcare providers, and a vast
             array of medicines for immediate patient care.
           </Typography>
-          <PriceRangeList
-            items={[
-              "Lorem ipsum dolor: GH$1 - GH$2",
-              "Sit amet, consetetur: GH$1 - GH$2",
-              "Sadipscing elitr: GH$1 - GH$2",
-              "Sed diam nonumy eirmod: GH$1 - GH$2",
-            ]}
-          />
         </ServicesPageCard>
         <ServicesPageCard
           title="Telehealth"
@@ -93,14 +76,6 @@ function Services() {
             We provide general consultation, chronic disease management, and
             second opinion.
           </Typography>
-          <PriceRangeList
-            items={[
-              "Lorem ipsum dolor: GH$1 - GH$2",
-              "Sit amet, consetetur: GH$1 - GH$2",
-              "Sadipscing elitr: GH$1 - GH$2",
-              "Sed diam nonumy eirmod: GH$1 - GH$2",
-            ]}
-          />
         </ServicesPageCard>
         <Typography
           variant="h3"
@@ -117,28 +92,15 @@ function Services() {
           buttonUrl="/booking/group"
         >
           <Typography variant="caption" margin="16px 0">
-            Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-            eos et accusam et justo duo dolores et ea rebum. <br /> <br /> Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-            sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-            sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-            duo dolores et ea rebum. <br /> <br /> Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. <br /> <br /> At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.
+            Whether you are a corporate body, faith-based organization, or a
+            group of people seeking healthcare, our Hope Health Van is here to
+            provide you with quality and affordable healthcare right at your
+            doorsteps. Our Health Vans are equipped with multiple point-of-care
+            lab diagnostics, healthcare providers, and a vast array of medicines
+            for patient care. 
+            <br /> <br /> We provide routine checkups and comprehensive lab
+            services.
           </Typography>
-          <PriceRangeList
-            items={[
-              "Lorem ipsum dolor: GH$1 - GH$2",
-              "Sit amet, consetetur: GH$1 - GH$2",
-              "Sadipscing elitr: GH$1 - GH$2",
-              "Sed diam nonumy eirmod: GH$1 - GH$2",
-            ]}
-          />
         </ServicesPageCard>
       </Box>
     </Box>

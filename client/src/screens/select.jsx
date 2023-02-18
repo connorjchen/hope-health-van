@@ -21,42 +21,34 @@ export const serviceConstants = {
     title: "Lab Services",
     subheader: "Select lab test(s)",
     error: "Please select at least one lab test",
-    calendly: "https://calendly.com/okb-hope-health/okb-health-clinic",
+    calendly: "https://calendly.com/okb-hope-health/lab-tests",
     options: {
       Hematology: [
-        ["Blood Film for Malaria", 1, 2],
-        ["Blood grouping", 1, 2],
-        ["Clotting profile (Pt, Aptt, D-dimers)", 1, 2],
-        ["ESR", 1, 2],
-        ["FBC", 1, 2],
-        ["Retro Screen", 1, 2],
-        ["Sickle cell electrophoresis", 1, 2],
-        ["UPT", 1, 2],
+        ["Full Blood Count", 30],
+        ["Hb", 10],
+        ["RDT", 20],
+        ["Sickling Test", 30],
+        ["Blood Grouping", 20],
+      ],
+      "Immunology and Serology": [
+        ["Hepatitis B", 15],
+        ["Hepatitis B Profile", 60],
+        ["Hepatitis C", 15],
+        ["VDRL", 10],
+        ["Retro Screen", 25],
+        ["RDT for Malaria", 10],
+        ["Pregnancy Test", 25],
       ],
       Microbiology: [
-        ["H. Pylori", 1, 2],
-        ["HVS R/E", 1, 2],
-        ["Stool RE", 1, 2],
-        ["Urine RE", 1, 2],
-        ["Widal test", 1, 2],
+        ["H-Pylori", 25],
+        ["Typhi Dot (Widal Test)", 25],
+        ["Stool RE", 30],
+        ["Urine RE", 30],
       ],
       Biochemistry: [
-        ["AFP", 1, 2],
-        ["Calcium estimates", 1, 2],
-        ["CRP", 1, 2],
-        ["Electrolytes", 1, 2],
-        ["FSH", 1, 2],
-        ["HBA1c", 1, 2],
-        ["LH", 1, 2],
-        ["Lipids", 1, 2],
-        ["Liber Function test", 1, 2],
-        ["Oestrogen", 1, 2],
-        ["OGTT", 1, 2],
-        ["Progesterone", 1, 2],
-        ["PSA", 1, 2],
-        ["Renal Function test", 1, 2],
-        ["TFT (TSH, T3, T4)", 1, 2],
-        ["Uric Acid", 1, 2],
+        ["PSA", 45],
+        ["HbA1c", 25],
+        ["Fasting Blood Sugar", 10],
       ],
     },
   },
@@ -64,19 +56,36 @@ export const serviceConstants = {
     title: "Mobile Van",
     subheader: "Select service(s)",
     error: "Please select one service",
-    calendly: "https://calendly.com/okb-hope-health/okb-mobile-van",
+    calendly: "https://calendly.com/okb-hope-health/mobile-van",
     options: {
       Hematology: [
-        ["Blood Film for Malaria", 1, 2],
-        ["Blood grouping", 1, 2],
+        ["Hb", 10],
+        ["ESR", 30],
+        ["RDT", 20],
+        ["Sickling Test", 30],
+        ["Blood Grouping", 20],
+        ["Hb Electrophoresis", 50],
+        ["Blood Film for Malaria Parasites", 25],
+      ],
+      "Immunology and Serology": [
+        ["Hepatitis B", 15],
+        ["Hepatitis B Profile", 60],
+        ["Hepatitis C", 15],
+        ["VDRL", 10],
+        ["Retro Screen", 25],
+        ["RDT for Malaria", 10],
+        ["Pregnancy Test", 25],
       ],
       Microbiology: [
-        ["H. Pylori", 1, 2],
-        ["HVS R/E", 1, 2],
+        ["H-Pylori", 25],
+        ["Typhi Dot (Widal Test)", 25],
+        ["Stool RE", 30],
+        ["Urine RE", 30],
       ],
       Biochemistry: [
-        ["AFP", 1, 2],
-        ["Calcium estimates", 1, 2],
+        ["PSA", 45],
+        ["HbA1c", 25],
+        ["Fasting Blood Sugar", 10],
       ],
     },
   },
@@ -84,12 +93,11 @@ export const serviceConstants = {
     title: "Telehealth",
     subheader: "Select service(s)",
     error: "Please select at least one service",
-    calendly: "https://calendly.com/okb-hope-health/okb-health-clinic",
+    calendly: "https://calendly.com/okb-hope-health/telehealth",
     options: {
       Services: [
-        ["Service 1", 1],
-        ["Service 2", 1],
-        ["Service 3", 1],
+        ["General consultation", 0],
+        ["Mental Health Consultation", 0],
       ],
     },
   },
@@ -101,28 +109,25 @@ function Select() {
   const { service } = useParams();
   const constants = serviceConstants[service];
   const [optionsSelected, setOptionsSelected] = useState([]);
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
+  const [costEstimate, setCostEstimate] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
   const [modalOpen, setModalOpen] = useState(true);
 
-  const handleSelectOption = (option, lo, hi) => {
+  const handleSelectOption = (option, cost) => {
     if (optionsSelected.includes(option)) {
       setOptionsSelected(optionsSelected.filter((o) => o !== option));
-      setMinPrice(minPrice - lo);
-      setMaxPrice(maxPrice - hi ?? 0);
+      setCostEstimate(costEstimate - cost);
     } else {
       setOptionsSelected([...optionsSelected, option]);
-      setMinPrice(minPrice + lo);
-      setMaxPrice(maxPrice + hi ?? 0);
+      setCostEstimate(costEstimate + cost);
     }
   };
 
   const handleNextButtonClick = () => {
     if (optionsSelected.length > 0) {
       navigate(`/booking/${service}/calendar`, {
-        state: { optionsSelected, minPrice, maxPrice },
+        state: { optionsSelected, costEstimate },
       });
     } else {
       setError(true);
@@ -162,18 +167,6 @@ function Select() {
       );
     }
     // none for telehealth
-  };
-
-  const Caption = ({ lo, hi }) => {
-    if (service === "labservices" || service === "mobilevan") {
-      return (
-        <Typography variant="caption">
-          Price range: GH${lo} - GH${hi}
-        </Typography>
-      );
-    } else if (service === "telehealth") {
-      return <Typography variant="caption">Price: GH${lo}</Typography>;
-    }
   };
 
   return (
@@ -271,7 +264,7 @@ function Select() {
             </Typography>
             <Box px="30px" sx={{ backgroundColor: theme.palette.blue.light }}>
               <FormGroup>
-                {constants.options[title].map(([test, lo, hi]) => {
+                {constants.options[title].map(([test, cost]) => {
                   if (
                     searchTerm === "" ||
                     test.toLowerCase().includes(searchTerm)
@@ -279,14 +272,18 @@ function Select() {
                     return (
                       <FormControlLabel
                         key={test}
+                        checked={optionsSelected.includes(test)}
                         control={<Checkbox />}
                         label={
                           <Box>
                             <Typography variant="body1">{test}</Typography>
-                            <Caption lo={lo} hi={hi} />
+                            <Typography variant="caption">
+                              {service !== "telehealth" &&
+                                `Price estimate: GH${cost}`}
+                            </Typography>
                           </Box>
                         }
-                        onChange={() => handleSelectOption(test, lo, hi)}
+                        onChange={() => handleSelectOption(test, cost)}
                       />
                     );
                   }

@@ -10,14 +10,16 @@ import {
   Grid,
   useTheme,
 } from "@mui/material";
+import hamza from "../assets/hamza.jpg";
+import justice from "../assets/justice.jpg";
+import kwame from "../assets/kwame.jpeg";
+import erica from "../assets/erica.jpg";
 
 const profiles = [
-  ["https://picsum.photos/200", "Name name", "Title / role"],
-  ["https://picsum.photos/200", "Name name", "Title / role"],
-  ["https://picsum.photos/200", "Name name", "Title / role"],
-  ["https://picsum.photos/200", "Name name", "Title / role"],
-  ["https://picsum.photos/200", "Name name", "Title / role"],
-  ["https://picsum.photos/200", "Name name", "Title / role"],
+  [justice, "Justice Awulley-Quaye", "Medical Director"],
+  [kwame, "Kwame Adu-Boampong", "Operations Director"],
+  [hamza, "Alhassan Hassan", "Doctor of Laboratory Services"],
+  [erica, "Erica Gyasi", "Nurse"],
 ];
 
 function ProfileCard({ image, name, role }) {
@@ -60,29 +62,26 @@ function About() {
   const theme = useTheme();
 
   return (
-    <Box>
-      <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
-      <Box
-        sx={{
-          maxWidth: "md",
-          mx: { xs: "0px", md: "auto" },
-        }}
-      >
-        <Box mx="16px">
-          <Typography variant="h1" mt="32px" mb="24px">
-            Our Team
-          </Typography>
-          <Grid container spacing="16px">
-            {profiles.map(([image, name, role]) => {
-              console.log(name);
-              return (
-                <Grid item xs={6} sm={4}>
-                  <ProfileCard image={image} name={name} role={role} />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Box>
+    <Box
+      sx={{
+        maxWidth: "md",
+        mx: { xs: "0px", md: "auto" },
+      }}
+    >
+      <Box mx="16px">
+        <Typography variant="h1" mt="32px" mb="24px">
+          Our Team
+        </Typography>
+        <Grid container spacing="16px">
+          {profiles.map(([image, name, role]) => {
+            console.log(name);
+            return (
+              <Grid item xs={6} sm={4}>
+                <ProfileCard image={image} name={name} role={role} />
+              </Grid>
+            );
+          })}
+        </Grid>
         <Divider
           sx={{
             my: "64px",
@@ -90,27 +89,22 @@ function About() {
         />
         <Box mx="16px">
           <Typography variant="h1" mb="16px">
-            Our Mission
+            Background
           </Typography>
           <Typography variant="body1">
-            Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet
-            bibendum metus et vehicula. ue. Sed laoreet bibendum metus et
-            vehicula. ue. Sed laoreet bibendum metus et vehicula.
-          </Typography>
-        </Box>
-        <Divider
-          sx={{
-            my: "64px",
-          }}
-        />
-        <Box mx="16px">
-          <Typography variant="h1" mb="16px">
-            Our Vision
-          </Typography>
-          <Typography variant="body1">
-            Nunc at leo pellentesque, dictum nibh a, aliquam neque. Sed laoreet
-            bibendum metus et vehicula. ue. Sed laoreet bibendum metus et
-            vehicula. ue. Sed laoreet bibendum metus et vehicula.
+            Behind the OKB Hope Health is the OKB Hope Foundation, a non-profit
+            organization that provides transformative healthcare and innovative
+            public health programs to rural and underserved Ghanaians.
+            <br />
+            <br />
+            Since the organization's inception, we have served over 3000
+            individuals by providing them with whole health assessments and
+            lifesaving medications. Our vision is to ensure that equitable and
+            quality healthcare is accessible to all Ghanaians.
+            <br />
+            <br />
+            Visit the organization’s website to learn more about our work and
+            the team
           </Typography>
         </Box>
       </Box>

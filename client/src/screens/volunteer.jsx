@@ -30,7 +30,6 @@ function Volunteer() {
 
   return (
     <Box>
-      <Box sx={{ background: "black", height: "188px" }}>placeholder image</Box>
       <Box
         sx={{
           maxWidth: "md",

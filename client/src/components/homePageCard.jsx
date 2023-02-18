@@ -2,7 +2,14 @@ import React from "react";
 import { Box, Button, Typography, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
+function HomePageCard({
+  title,
+  location,
+  description,
+  image,
+  buttonText,
+  buttonUrl,
+}) {
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -30,9 +37,10 @@ function HomePageCard({ title, location, description, buttonText, buttonUrl }) {
             alignItems: "center",
             marginRight: "16px",
           }}
-        >
-          A
-        </Box>
+          component="img"
+          src={image}
+          alt="icon"
+        />
         <Box>
           <Typography variant="h5" m="0">
             {title}

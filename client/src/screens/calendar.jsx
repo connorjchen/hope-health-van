@@ -14,12 +14,6 @@ import Axios from "axios";
 
 const baseUrl = "https://hopehealthvanserver.live/booking";
 
-const locations = {
-  labservices: 1,
-  mobilevan: "",
-  telehealth: 2,
-};
-
 function Calendar() {
   dayjs.extend(utc);
   const theme = useTheme();
@@ -79,59 +73,58 @@ function Calendar() {
           phoneNumber,
           location,
           services: state.optionsSelected,
-          minPrice: state.minPrice,
-          maxPrice: state.maxPrice,
+          costEstimate: state.costEstimate,
           okbNumber,
           additionalInfo,
         };
 
-        navigate(`/booking/${service}/confirmation`, {
-          state: payload,
-        });
+        fetch(e.data.payload.event.uri, options)
+          .then((response) => response.json())
+          .then((response) => {
+            const { start_time: startTime, end_time: endTime } =
+              response.resource;
+            payload = {
+              ...payload,
+              startTime,
+              endTime,
+            };
+            console.log(payload);
 
-        // fetch(e.data.payload.event.uri, options)
-        //   .then((response) => response.json())
-        //   .then((response) => {
-        //     const { start_time: startTime, end_time: endTime } =
-        //       response.resource;
-        //     payload = {
-        //       ...payload,
-        //       startTime,
-        //       endTime,
-        //     };
-        //     console.log(payload);
+            navigate(`/booking/${service}/confirmation`, {
+              state: payload,
+            });
 
-        //     Axios.post(`${baseUrl}/appointment`, {
-        //       services: payload.services,
-        //       appointmentType: service,
-        //       location: payload.location,
-        //       dateTime: dayjs(payload.startTime)
-        //         .utc()
-        //         .format("h:mm A dddd, MMMM D YYYY"),
-        //       name: payload.name,
-        //       phone: payload.phoneNumber,
-        //       okb_id: payload.okbNumber,
-        //     })
-        //       .then((response) => {
-        //         console.log(response);
-        //         if (!okbNumber) {
-        //           Axios.post(`${baseUrl}/addPatient`, {
-        //             name: payload.name,
-        //             phone: payload.phoneNumber,
-        //             okb_id: 0,
-        //           })
-        //             .then((response) => console.log(response))
-        //             .catch((err) => console.error(err));
-        //         }
-        //       })
-        //       .catch((err) => console.error(err))
-        //       .then(() =>
-        //         navigate(`/booking/${service}/confirmation`, {
-        //           state: payload,
-        //         })
-        //       );
-        //   })
-        //   .catch((err) => console.error(err));
+            // Axios.post(`${baseUrl}/appointment`, {
+            //   services: payload.services,
+            //   appointmentType: service,
+            //   location: payload.location,
+            //   dateTime: dayjs(payload.startTime)
+            //     .utc()
+            //     .format("h:mm A dddd, MMMM D YYYY"),
+            //   name: payload.name,
+            //   phone: payload.phoneNumber,
+            //   okb_id: payload.okbNumber,
+            // })
+            //   .then((response) => {
+            //     console.log(response);
+            //     if (!okbNumber) {
+            //       Axios.post(`${baseUrl}/addPatient`, {
+            //         name: payload.name,
+            //         phone: payload.phoneNumber,
+            //         okb_id: 0,
+            //       })
+            //         .then((response) => console.log(response))
+            //         .catch((err) => console.error(err));
+            //     }
+            //   })
+            //   .catch((err) => console.error(err))
+            //   .then(() =>
+            //     navigate(`/booking/${service}/confirmation`, {
+            //       state: payload,
+            //     })
+            //   );
+          })
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };
@@ -157,10 +150,14 @@ function Calendar() {
         }}
         prefill={{
           email: "info@okbfoundation.org",
-          customAnswers: {
-            a2: locations[service],
-            a3: state.optionsSelected.join(", "),
-          },
+          customAnswers:
+            service === "mobilevan"
+              ? {
+                  a3: state.optionsSelected.join(", "),
+                }
+              : {
+                  a2: state.optionsSelected.join(", "),
+                },
         }}
       />
     </Box>

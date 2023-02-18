@@ -73,9 +73,9 @@ function Confirm() {
             <Typography key={service}>{service}</Typography>
           ))}
           <Typography variant="caption">
-            {service === "telehealth"
-              ? `Estimated overall cost: GH$${state.minPrice}`
-              : `Estimated overall cost range: GH$${state.minPrice} - GH$${state.maxPrice}`}
+            {`Estimated overall cost: GH$${
+              service === "telehealth" ? "TBD" : state.costEstimate
+            }`}
             <br />
             Estimated time at the facility: 30 minutes
           </Typography>
@@ -89,6 +89,11 @@ function Confirm() {
             <br />
             {state.okbNumber ? "Known patient" : "New patient"}
           </Typography>
+          {service === "telehealth" && (
+            <Typography variant="h5" my="32px">
+              We will send you a video link 24 hours before your appointment
+            </Typography>
+          )}
           {/* <Typography variant="h5" my="32px">
             We will send you a reminder 24-48 hours before your appointment
           </Typography> */}
