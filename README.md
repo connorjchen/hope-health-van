@@ -9,3 +9,5 @@ Built using node version v16 LTS and npm version 8.19.2
 - cd client
 - npm install --force
 - npm run dev
+
+Backend (server) folder is currently not running
