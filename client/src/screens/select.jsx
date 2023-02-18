@@ -24,7 +24,7 @@ export const serviceConstants = {
     calendly: "https://calendly.com/okb-hope-health/lab-tests",
     options: {
       Hematology: [
-        ["Full Blood Count!!", 31],
+        ["Full Blood Count!", 31],
         ["Hb", 10],
         ["RDT", 20],
         ["Sickling Test", 30],
