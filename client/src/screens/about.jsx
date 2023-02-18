@@ -9,6 +9,7 @@ import {
   CardMedia,
   Grid,
   useTheme,
+  Link,
 } from "@mui/material";
 import hamza from "../assets/hamza.jpg";
 import justice from "../assets/justice.jpg";
@@ -103,8 +104,16 @@ function About() {
             quality healthcare is accessible to all Ghanaians.
             <br />
             <br />
-            Visit the organization’s website to learn more about our work and
-            the team
+            Visit the{" "}
+            <Link
+              href="https://www.okbfoundation.org"
+              sx={{
+                textDecoration: "underline",
+              }}
+            >
+              organization’s website
+            </Link>{" "}
+            to learn more about our work and the team
           </Typography>
         </Box>
       </Box>
