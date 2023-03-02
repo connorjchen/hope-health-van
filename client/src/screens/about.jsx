@@ -15,12 +15,18 @@ import hamza from "../assets/hamza.jpg";
 import justice from "../assets/justice.jpg";
 import kwame from "../assets/kwame.jpeg";
 import erica from "../assets/erica.jpg";
+import emmanuel from "../assets/emmanuel.jpg";
+import priscilla from "../assets/priscilla.jpg";
+import white from "../assets/white.png";
 
 const profiles = [
   [justice, "Justice Awulley-Quaye", "Medical Director"],
   [kwame, "Kwame Adu-Boampong", "Operations Director"],
   [hamza, "Alhassan Hassan", "Doctor of Laboratory Services"],
   [erica, "Erica Gyasi", "Nurse"],
+  [emmanuel, "Emmanuel Addo", "Optometrist"],
+  [priscilla, "Priscilla Osei - Bonsu", "Clinical Pharmacist"],
+  [white, "Michael Wiafe - Akenteng", "Registered Dietician"],
 ];
 
 function ProfileCard({ image, name, role }) {
@@ -44,7 +50,14 @@ function ProfileCard({ image, name, role }) {
         }}
       >
         <Box>
-          <CardMedia component="img" height="auto" image={image} alt="image" />
+          <CardMedia
+            component="img"
+            image={image}
+            alt="image"
+            sx={{
+              height: { xs: "150px", sm: "200px" },
+            }}
+          />
           <CardContent
             sx={{
               background: theme.palette.blue.light,
@@ -75,7 +88,6 @@ function About() {
         </Typography>
         <Grid container spacing="16px">
           {profiles.map(([image, name, role]) => {
-            console.log(name);
             return (
               <Grid item xs={6} sm={4}>
                 <ProfileCard image={image} name={name} role={role} />

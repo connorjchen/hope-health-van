@@ -26,7 +26,6 @@ export const serviceConstants = {
       Hematology: [
         ["Full Blood Count", 30],
         ["Hb", 10],
-        ["RDT", 20],
         ["Sickling Test", 30],
         ["Blood Grouping", 20],
       ],
@@ -46,9 +45,22 @@ export const serviceConstants = {
         ["Urine RE", 30],
       ],
       Biochemistry: [
-        ["PSA", 45],
         ["HbA1c", 25],
         ["Fasting Blood Sugar", 10],
+        ["Beta HCG", 130],
+        ["Blood Film Comment", 160],
+        ["Glycated Hemoglobin", 80],
+        ["Liver Function Test", 80],
+        ["Renal Function Test", 80],
+        ["Lipid Profile", 80],
+        ["INR", 80],
+        ["Uric Acid", 75],
+        ["Hb Electrophoresis", 35],
+        ["D-Dimer", 200],
+        ["Leutinizing Hormone", 75],
+        ["Progesterone", 75],
+        ["Prolactin", 75],
+        ["Prostate Specific Antigen", 75],
       ],
     },
   },
@@ -61,7 +73,6 @@ export const serviceConstants = {
       Hematology: [
         ["Hb", 10],
         ["ESR", 30],
-        ["RDT", 20],
         ["Sickling Test", 30],
         ["Blood Grouping", 20],
         ["Hb Electrophoresis", 50],
@@ -83,7 +94,6 @@ export const serviceConstants = {
         ["Urine RE", 30],
       ],
       Biochemistry: [
-        ["PSA", 45],
         ["HbA1c", 25],
         ["Fasting Blood Sugar", 10],
       ],
@@ -96,8 +106,10 @@ export const serviceConstants = {
     calendly: "https://calendly.com/okb-hope-health/telehealth",
     options: {
       Services: [
-        ["General consultation", 0],
-        ["Mental Health Consultation", 0],
+        ["General consultation", 15],
+        ["Mental Health Consultation", 20],
+        ["Eye Service Consultation", 40],
+        ["Weight Loss and Nutrition Consultation", 50],
       ],
     },
   },
@@ -278,8 +290,7 @@ function Select() {
                           <Box>
                             <Typography variant="body1">{test}</Typography>
                             <Typography variant="caption">
-                              {service !== "telehealth" &&
-                                `Price estimate: GH${cost}`}
+                              {`Price estimate: GH$${cost}`}
                             </Typography>
                           </Box>
                         }
