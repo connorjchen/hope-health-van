@@ -25,6 +25,7 @@ export const serviceConstants = {
     options: {
       Hematology: [
         ["Full Blood Count", 30],
+        ["ESR", 30],
         ["Hb", 10],
         ["Sickling Test", 30],
         ["Blood Grouping", 20],

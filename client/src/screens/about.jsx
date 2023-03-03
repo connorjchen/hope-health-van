@@ -22,10 +22,14 @@ import white from "../assets/white.png";
 const profiles = [
   [justice, "Justice Awulley-Quaye", "Medical Director"],
   [kwame, "Kwame Adu-Boampong", "Operations Director"],
-  [hamza, "Alhassan Hassan", "Doctor of Laboratory Services"],
+  [
+    hamza,
+    "Dr. Alhassan Hamza, MLSD, MLS (ASCPi)CM",
+    "Doctor of Laboratory Services",
+  ],
   [erica, "Erica Gyasi", "Nurse"],
-  [emmanuel, "Emmanuel Addo", "Optometrist"],
-  [priscilla, "Priscilla Osei - Bonsu", "Clinical Pharmacist"],
+  [emmanuel, "Dr. Emmanuel Addo, OD, MGOA", "Optometrist"],
+  [priscilla, "Priscilla Osei - Bonsu", "Clinical Psychologist"],
   [white, "Michael Wiafe - Akenteng", "Registered Dietician"],
 ];
 
