@@ -45,8 +45,8 @@ export const serviceConstants = {
         ["H-Pylori", 25],
         ["Typhi Dot (Widal Test)", 25],
         ["Stool RE", 30],
-        ["Gonorrhoea", 30]
-        ["Chlamydia", 30]
+        ["Gonorrhoea", 30],
+        ["Chlamydia", 30],
         ["Urine Culture", 100],
         ["Urine RE", 30],
       ],
