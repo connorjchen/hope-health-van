@@ -291,7 +291,7 @@ function Select() {
                           <Box>
                             <Typography variant="body1">{test}</Typography>
                             <Typography variant="caption">
-                              {`Price estimate: GH$${cost}`}
+                              {`Price estimate: GH${cost}`}
                             </Typography>
                           </Box>
                         }

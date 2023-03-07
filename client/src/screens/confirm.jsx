@@ -73,11 +73,11 @@ function Confirm() {
             <Typography key={service}>{service}</Typography>
           ))}
           <Typography variant="caption">
-            {`Estimated overall cost: GH$${
+            {`Estimated overall cost: GH${
               service === "telehealth" ? "TBD" : state.costEstimate
             }`}
             <br />
-            Estimated time at the facility: 30 minutes
+            Estimated time at the facility: 45 minutes
           </Typography>
           <Typography variant="h5" mt="24px" mb="4px">
             Patient’s details
