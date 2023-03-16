@@ -48,7 +48,7 @@ export const serviceConstants = {
         ["Gonorrhoea", 40],
         ["Chlamydia", 30],
         ["Urine Culture", 100],
-        ["Urine RE", 30],
+        ["Urine RE", 20],
       ],
       Biochemistry: [
         ["HbA1c", 80],
