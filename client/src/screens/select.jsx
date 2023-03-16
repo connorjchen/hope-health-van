@@ -97,7 +97,7 @@ export const serviceConstants = {
         ["H-Pylori", 25],
         ["Typhi Dot (Widal Test)", 25],
         ["Stool RE", 30],
-        ["Urine RE", 30],
+        ["Urine RE", 20],
       ],
       Biochemistry: [
         ["HbA1c", 80],
